@@ -1,218 +1,177 @@
-"""Generate blog.html from extracted blog_data.json"""
-import sys, io, json, html as html_mod
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+"""
+Regenerate the blog content section of blog.html (EN site) from blog_data.json.
 
-with open(r'C:\Моя папка\1. Наука\004 Контент\Сайты\Индекс Хирша (RU)\blog_data.json', 'r', encoding='utf-8') as f:
-    weeks = json.load(f)
+This script preserves everything in blog.html EXCEPT the section between the
+`<!-- Blog Content -->` marker and the `<!-- Footer -->` marker. The hero,
+navigation, and footer are left untouched (they are maintained by the
+designer / content team directly in blog.html).
 
-# Manual title fixes
-title_overrides = {
-    '1': 'Писать — значит думать',
-    '2': 'Ясность сильнее сложности',
-    '3': 'Научная коммуникация',
-    '4': 'Академическое письмо',
-    '5': 'Нет времени писать',
-    '6': 'Как пережить рецензентов',
-    '7': 'Что мы читаем и зачем',
-    '8': 'Праздничная неделя',
-    '9': 'Виды публикаций',
-    '10': 'Онлайн-ресурсы исследователя',
-    '11': 'Основы научного процесса',
-    '12': 'Цель и задачи исследования',
-    '13': 'Актуальность и научная новизна',
-    '14': 'Объект и предмет исследования',
-    '15': 'Доказательная медицина',
-    '16': 'Обсервационные и интервенционные исследования',
-    '17': 'Виды обсервационных исследований',
-    '18': 'Рандомизация и РКИ',
-    '19': 'Ослепление и плацебо',
-    '20': 'Проспективные и ретроспективные исследования',
-    '21': 'Зачем врачу наука?',
-    '22': 'Данные рутинной практики',
-    '23': 'Корреляция и причинность',
-}
+Usage:
+    python gen_blog.py
 
-for w in weeks:
-    if w['num'] in title_overrides:
-        w['title'] = title_overrides[w['num']]
+Reads:  ./blog_data.json
+Writes: ./blog.html  (in-place section replacement)
 
-weeks_reversed = list(reversed(weeks))
+Block grouping: posts are grouped by the optional "block" field on each week
+(e.g. "Patients, Data and Design"). Weeks within a block are listed
+newest-first. Blocks themselves appear in the order they first appear in the
+data file (so the live block stays at the top while older blocks accumulate
+below).
+"""
+from __future__ import annotations
 
-def esc(text):
-    return html_mod.escape(text)
+import html as html_mod
+import io
+import json
+import sys
+from pathlib import Path
 
-def make_post_html(post):
-    parts = []
-    title = post.get('title', '').strip()
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+
+BASE = Path(__file__).parent
+DATA_PATH = BASE / "blog_data.json"
+HTML_PATH = BASE / "blog.html"
+
+START_MARKER = "<!-- Blog Content -->"
+END_MARKER = "<!-- Footer -->"
+
+
+def esc(text: str | None) -> str:
+    return html_mod.escape(text or "")
+
+
+def render_post(post: dict) -> str:
+    parts: list[str] = []
+    title = (post.get("title") or "").strip()
     if title:
-        parts.append(f'<h4 style="margin:20px 0 10px; font-size:1.05rem;">{esc(title)}</h4>')
-    for line in post.get('body', []):
-        line = line.strip()
+        parts.append(
+            f'<h4 style="margin:20px 0 10px; font-size:1.05rem; color:#0f172a;">{esc(title)}</h4>'
+        )
+    for line in post.get("body", []):
+        line = (line or "").strip()
         if not line:
             continue
-        if line.startswith('—') or line.startswith('- '):
-            parts.append(f'<p style="margin:4px 0 4px 16px; color:var(--text-light); font-size:0.92rem;">{esc(line)}</p>')
+        if line.startswith("- ") or line.startswith("— ") or line.startswith("– "):
+            parts.append(
+                f'<p style="margin:4px 0 4px 16px; color:#475569; font-size:0.92rem; line-height:1.6;">{esc(line)}</p>'
+            )
         else:
-            parts.append(f'<p style="color:var(--text-light); font-size:0.92rem; margin-bottom:10px;">{esc(line)}</p>')
-    return '\n            '.join(parts)
+            parts.append(
+                f'<p style="color:#475569; font-size:0.92rem; line-height:1.6; margin-bottom:10px;">{esc(line)}</p>'
+            )
+    return "\n            ".join(parts)
 
-# Build TOC
-toc_items = []
-for w in weeks_reversed:
-    toc_items.append(
-        f'<a href="#week-{w["num"]}" class="toc-link">'
-        f'<strong>{w["num"]}.</strong> {esc(w["title"])}</a>'
+
+def render_week_section(week: dict) -> str:
+    posts_html: list[str] = []
+    for p in week.get("posts", []):
+        ph = render_post(p)
+        if ph.strip():
+            posts_html.append(
+                '<div style="margin-bottom:16px; padding:20px 24px; background:#fff; border:1px solid #e2e8f0; border-radius:8px;">\n            '
+                + ph
+                + "\n          </div>"
+            )
+    posts_block = "".join(posts_html)
+    return (
+        f'<div id="week-{esc(week["num"])}" style="margin-bottom:50px;">\n'
+        f'        <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:20px;">\n'
+        f'          <span style="font-size:0.8rem; font-weight:600; color:#3366CC; background:#eff6ff; padding:4px 12px; border-radius:4px;">Week {esc(week["num"])}</span>\n'
+        f'          <h3 style="font-size:1.3rem; margin:0; color:#0f172a;">{esc(week["title"])}</h3>\n'
+        f"        </div>\n"
+        f"        {posts_block}\n"
+        f"      </div>"
     )
 
-# Build week sections
-week_sections = []
-for w in weeks_reversed:
-    posts_html = []
-    for p in w['posts']:
-        ph = make_post_html(p)
-        if ph.strip():
-            posts_html.append(f'<div style="margin-bottom:16px; padding:16px 20px; background:#fff; border:1px solid var(--border-light); border-radius:8px;">\n            {ph}\n          </div>')
 
-    week_sections.append(f'''
-      <div id="week-{w['num']}" style="margin-bottom:50px;">
-        <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:20px;">
-          <span style="font-size:0.8rem; font-weight:600; color:var(--brand); background:var(--border-light); padding:4px 12px; border-radius:4px;">Неделя {w['num']}</span>
-          <h3 style="font-size:1.3rem; margin:0;">{esc(w['title'])}</h3>
-        </div>
-        {"".join(posts_html)}
-      </div>''')
+def group_by_block(weeks: list[dict]) -> list[tuple[str, list[dict]]]:
+    """Preserve first-seen order of blocks; sort weeks within a block newest first."""
+    order: list[str] = []
+    buckets: dict[str, list[dict]] = {}
+    for w in weeks:
+        block = (w.get("block") or "").strip()
+        if block not in buckets:
+            buckets[block] = []
+            order.append(block)
+        buckets[block].append(w)
+    for block in order:
+        buckets[block].sort(key=lambda w: int(w["num"]), reverse=True)
+    return [(b, buckets[b]) for b in order]
 
-output = '''<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Азбука медицинской науки — статьи о научном письме, методологии и публикациях. Индекс Хирша.">
-  <title>Блог — Индекс Хирша</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .page-hero {
-      padding: 130px 0 60px;
-      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-      text-align: center;
-    }
-    .page-hero h1 { font-size: 2.75rem; margin-bottom: 16px; }
-    .page-hero p { font-size: 1.1rem; color: var(--text-light); max-width: 560px; margin: 0 auto; }
-    .toc-sidebar {
-      position: sticky; top: 90px;
-      max-height: calc(100vh - 120px); overflow-y: auto;
-      padding-right: 20px;
-    }
-    .toc-link {
-      display: block; padding: 6px 0; font-size: 0.85rem;
-      color: var(--text-light); text-decoration: none;
-      border-bottom: 1px solid var(--border-light);
-    }
-    .toc-link:hover { color: var(--brand); }
-    .blog-layout {
-      display: grid; grid-template-columns: 240px 1fr; gap: 40px;
-      align-items: start;
-    }
-    @media (max-width: 900px) {
-      .blog-layout { grid-template-columns: 1fr; }
-      .toc-sidebar { position: static; max-height: none; }
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <div class="container nav-inner">
-      <a href="index.html" class="logo">
-        <img src="assets/logo-main.jpg" alt="[h]">
-        <span class="logo-text">Индекс Хирша</span>
-      </a>
-      <div style="display:flex; align-items:center; gap:28px;">
-        <div class="menu">
-          <a href="education.html">Обучение</a>
-          <a href="club.html">Клуб</a>
-          <a href="consulting.html">Консалтинг</a>
-          <a href="blog.html" class="active">Блог</a>
-        </div>
-        <a href="https://t.me/hirsch_index_school" class="btn btn-primary btn-sm" style="white-space:nowrap;">
-          <i class="fab fa-telegram" style="margin-right:6px;"></i>Telegram
-        </a>
-        <button class="mobile-toggle" onclick="toggleMobile()" aria-label="Меню"><i class="fas fa-bars"></i></button>
-      </div>
-    </div>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="education.html">Обучение</a><a href="club.html">Клуб</a>
-    <a href="consulting.html">Консалтинг</a><a href="blog.html">Блог</a>
-  </div>
 
-  <section class="page-hero">
-    <div class="container">
-      <span class="section-badge">Блог</span>
-      <h1>Азбука медицинской науки</h1>
-      <p>Статьи о научном письме, методологии исследований и секретах публикаций</p>
-    </div>
-  </section>
+def build_toc_and_content(weeks: list[dict]) -> tuple[str, str]:
+    grouped = group_by_block(weeks)
+    toc_lines: list[str] = []
+    content_blocks: list[str] = []
 
-  <section>
-    <div class="container">
-      <div class="blog-layout">
-        <div class="toc-sidebar">
-          <h4 style="margin-bottom:12px; font-size:0.95rem;">Оглавление</h4>
-          PLACEHOLDER_TOC
-        </div>
-        <div>
-          PLACEHOLDER_WEEKS
-        </div>
-      </div>
-    </div>
-  </section>
+    for block_name, block_weeks in grouped:
+        if block_name:
+            toc_lines.append(
+                f'<div style="margin:18px 0 6px; font-size:0.7rem; font-weight:700; color:#c5a065; letter-spacing:0.12em; text-transform:uppercase;">{esc(block_name)}</div>'
+            )
+            content_blocks.append(
+                f'<div style="margin:0 0 28px; padding-bottom:12px; border-bottom:2px solid #c5a065;">\n'
+                f'        <div style="font-size:0.75rem; font-weight:700; color:#c5a065; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:6px;">Block · {esc(block_name)}</div>\n'
+                f'      </div>'
+            )
+        for w in block_weeks:
+            toc_lines.append(
+                f'<a href="#week-{esc(w["num"])}" class="toc-link"><strong>{esc(w["num"])}.</strong> {esc(w["title"])}</a>'
+            )
+            content_blocks.append(render_week_section(w))
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h4>Индекс Хирша</h4>
-          <div class="footer-links">
-            <a href="education.html">Обучение</a><a href="club.html">Клуб</a>
-            <a href="consulting.html">Консалтинг</a><a href="blog.html">Блог</a>
-          </div>
-        </div>
-        <div>
-          <h4>Контакты</h4>
-          <div class="footer-links">
-            <a href="https://t.me/+79854770449"><i class="fab fa-telegram" style="width:18px;"></i> Telegram</a>
-            <a href="https://wa.me/79854770449"><i class="fab fa-whatsapp" style="width:18px;"></i> WhatsApp</a>
-            <a href="mailto:zhigalovmd@yandex.ru"><i class="fas fa-envelope" style="width:18px;"></i> zhigalovmd@yandex.ru</a>
-          </div>
-        </div>
-        <div>
-          <h4>Соцсети</h4>
-          <div class="footer-links">
-            <a href="https://t.me/hirsch_index_school"><i class="fab fa-telegram" style="width:18px;"></i> Telegram-канал</a>
-            <a href="https://vk.com/club235429996" target="_blank"><i class="fab fa-vk" style="width:18px;"></i> ВКонтакте</a>
-            <a href="https://max.ru/join/TmlfyQ5T5BJu-iLZlOYbZolsFX2vrBDQ8t8jaKfz3P0" target="_blank"><i class="fas fa-comment-dots" style="width:18px;"></i> MAX</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Индекс Хирша. Все права защищены.</span>
-        <a href="offer.html">Публичная оферта</a>
-      </div>
-    </div>
-  </footer>
-  <script>function toggleMobile(){document.getElementById('mobileMenu').classList.toggle('open');}</script>
-</body>
-</html>'''
+    return ("\n                        ".join(toc_lines), "\n      ".join(content_blocks))
 
-output = output.replace('PLACEHOLDER_TOC', '\n          '.join(toc_items))
-output = output.replace('PLACEHOLDER_WEEKS', ''.join(week_sections))
 
-with open(r'C:\Моя папка\1. Наука\004 Контент\Сайты\Индекс Хирша (RU)\blog.html', 'w', encoding='utf-8') as f:
-    f.write(output)
+def build_section(toc_html: str, content_html: str) -> str:
+    return f"""<!-- Blog Content -->
+        <section class="pt-90 pb-90">
+            <div class="container">
+                <div class="blog-layout">
+                    <div class="toc-sidebar wow fadeInLeft">
+                        <h4 style="margin-bottom:12px; font-size:0.95rem;">Contents</h4>
+                        {toc_html}
+                    </div>
+                    <div>
+                      {content_html}
+                    </div>
+                </div>
+            </div>
+        </section>
 
-print('blog.html generated successfully')
-print(f'File size: {len(output):,} chars')
+        """
+
+
+def main() -> None:
+    if not DATA_PATH.exists():
+        print(f"ERROR: {DATA_PATH} not found")
+        sys.exit(1)
+
+    weeks = json.loads(DATA_PATH.read_text(encoding="utf-8"))
+    if not isinstance(weeks, list):
+        print("ERROR: blog_data.json must contain a JSON array")
+        sys.exit(1)
+
+    text = HTML_PATH.read_text(encoding="utf-8")
+    si = text.find(START_MARKER)
+    ei = text.find(END_MARKER)
+    if si < 0 or ei < 0:
+        print(f"ERROR: markers not found in blog.html ({START_MARKER!r} or {END_MARKER!r})")
+        sys.exit(1)
+
+    if not weeks:
+        # No weeks yet — keep the empty skeleton placeholder that is already there.
+        print("blog_data.json is empty, leaving blog.html skeleton intact.")
+        return
+
+    toc_html, content_html = build_toc_and_content(weeks)
+    new_section = build_section(toc_html, content_html)
+    new_text = text[:si] + new_section + text[ei:]
+    HTML_PATH.write_text(new_text, encoding="utf-8")
+
+    print(f"blog.html: {len(text):,} -> {len(new_text):,} chars")
+    print(f"Weeks rendered: {len(weeks)}")
+
+
+if __name__ == "__main__":
+    main()

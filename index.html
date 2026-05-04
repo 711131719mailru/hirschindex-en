@@ -136,8 +136,24 @@
                 padding: 8px 0;
             }
             .hi-mobile-menu a:hover { color: #3366CC; }
+            .hi-nav-social {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+            }
+            .hi-nav-social a {
+                color: #475569;
+                font-size: 0.95rem;
+                transition: color 0.2s;
+                display: inline-flex;
+                align-items: center;
+                line-height: 1;
+            }
+            .hi-nav-social a:hover { color: #0f172a; }
+            .hi-nav-social a.x svg { width: 14px; height: 14px; }
             @media (max-width: 991px) {
                 .hi-nav-menu { display: none; }
+                .hi-nav-social { display: none; }
                 .hi-burger { display: block; }
                 .hi-nav-tg { display: none !important; }
             }
@@ -405,6 +421,12 @@
                             <li><a href="blog.html">Blog</a></li>
                             <li><a href="resources.html">Resources</a></li>
                         </ul>
+                        <div class="hi-nav-social">
+                            <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://x.com/HirschIndex" target="_blank" aria-label="X" class="x"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 89.6 464H19L184.4 269.6 12.5 48H157.7l102.6 137 128.9-137zM360.7 422.2h39.1L156.5 88h-42L360.7 422.2z"/></svg></a>
+                            <a href="https://www.instagram.com/hirsch_index_school/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61573281606605" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
                         <button class="hi-burger" onclick="document.getElementById('hiMobile').classList.toggle('open')" aria-label="Menu">
                             <i class="fas fa-bars"></i>
                         </button>
@@ -442,11 +464,11 @@
                         <div class="sec-title v2 text-center w-100 wow fadeInUp">
                             <div class="sec-title-inner d-inline-block">
                                 <h2 class="mb-0 text-color3">Hirsch Index ecosystem</h2>
-                                <p class="mb-0" style="font-family:'Inter',sans-serif; color:#475569;">Four directions, one goal — your publication in a peer-reviewed journal</p>
+                                <p class="mb-0" style="font-family:'Inter',sans-serif; color:#475569;">Our goal is your publication in a peer-reviewed journal</p>
                             </div>
                         </div>
-                        <div class="row mrg30">
-                            <div class="col-md-6 col-lg-3">
+                        <div class="row mrg30 justify-content-center">
+                            <div class="col-md-6 col-lg-4">
                                 <a href="consulting.html" class="hi-pillar wow fadeInUp" data-wow-delay="0.1s" style="text-decoration:none; color:inherit;">
                                     <img src="assets/logo-consulting.jpg" alt="Consulting">
                                     <h3>Consulting</h3>
@@ -454,27 +476,19 @@
                                     <span style="display:inline-block; background:#fff; color:#475569; border:1px solid #e2e8f0; padding:10px 20px; font-size:0.85rem; border-radius:8px; font-family:'Inter',sans-serif; font-weight:500; transition:border-color 0.2s, color 0.2s;">Learn more</span>
                                 </a>
                             </div>
-                            <div class="col-md-6 col-lg-3">
+                            <div class="col-md-6 col-lg-4">
                                 <a href="blog.html" class="hi-pillar wow fadeInUp" data-wow-delay="0.2s" style="text-decoration:none; color:inherit;">
-                                    <img src="assets/logo-blog.jpg" alt="Blog">
+                                    <img src="assets/logo-edu.jpg" alt="Blog">
                                     <h3>Blog</h3>
                                     <p>The ABCs of medical science — notes on scientific writing, methodology, and publishing.</p>
                                     <span style="display:inline-block; background:#fff; color:#475569; border:1px solid #e2e8f0; padding:10px 20px; font-size:0.85rem; border-radius:8px; font-family:'Inter',sans-serif; font-weight:500; transition:border-color 0.2s, color 0.2s;">Learn more</span>
                                 </a>
                             </div>
-                            <div class="col-md-6 col-lg-3">
+                            <div class="col-md-6 col-lg-4">
                                 <a href="resources.html" class="hi-pillar wow fadeInUp" data-wow-delay="0.3s" style="text-decoration:none; color:inherit;">
-                                    <img src="assets/logo-edu.jpg" alt="Resources">
+                                    <img src="assets/logo-blog.jpg" alt="Resources">
                                     <h3>Resources</h3>
                                     <p>Free tools, templates, and checklists for researchers at every stage of the publication process.</p>
-                                    <span style="display:inline-block; background:#fff; color:#475569; border:1px solid #e2e8f0; padding:10px 20px; font-size:0.85rem; border-radius:8px; font-family:'Inter',sans-serif; font-weight:500; transition:border-color 0.2s, color 0.2s;">Learn more</span>
-                                </a>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <a href="#about" class="hi-pillar wow fadeInUp" data-wow-delay="0.4s" style="text-decoration:none; color:inherit;">
-                                    <img src="assets/logo-club.jpg" alt="About">
-                                    <h3>About</h3>
-                                    <p>About the founder and the Hirsch Index mission — helping researchers publish internationally.</p>
                                     <span style="display:inline-block; background:#fff; color:#475569; border:1px solid #e2e8f0; padding:10px 20px; font-size:0.85rem; border-radius:8px; font-family:'Inter',sans-serif; font-weight:500; transition:border-color 0.2s, color 0.2s;">Learn more</span>
                                 </a>
                             </div>
@@ -497,7 +511,7 @@
                                     <div class="hi-founder-badges" style="margin-top:24px;">
                                         <div class="hi-founder-badge"><i class="fas fa-graduation-cap"></i> MD, PhD</div>
                                         <div class="hi-founder-badge"><i class="fas fa-chart-line"></i> h-index 16</div>
-                                        <div class="hi-founder-badge"><i class="fas fa-file-alt"></i> 70+ publications</div>
+                                        <div class="hi-founder-badge"><i class="fas fa-file-alt"></i> 78 publications</div>
                                         <div class="hi-founder-badge"><i class="fas fa-language"></i> EN / DE / RU</div>
                                     </div>
                                 </div>
@@ -556,7 +570,7 @@
                                 </div>
                             </a>
                             <a href="https://x.com/HirschIndex" target="_blank" class="hi-social-card wow fadeInUp" data-wow-delay="0.2s">
-                                <div class="hi-social-icon" style="background:#000; color:#fff;"><i class="fab fa-x-twitter"></i></div>
+                                <div class="hi-social-icon" style="background:#000; color:#fff; display:flex; align-items:center; justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 89.6 464H19L184.4 269.6 12.5 48H157.7l102.6 137 128.9-137zM360.7 422.2h39.1L156.5 88h-42L360.7 422.2z"/></svg></div>
                                 <div>
                                     <div style="font-weight:600;">X</div>
                                     <div style="font-size:0.85rem; color:#475569;">@HirschIndex</div>
@@ -612,15 +626,14 @@
                             <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
                                 <h4 style="font-family:'Playfair Display',serif;">Contact</h4>
                                 <div class="hi-footer-links">
-                                    <a href="mailto:zhigalovmd@yandex.ru"><i class="fas fa-envelope" style="width:18px;"></i> zhigalovmd@yandex.ru</a>
-                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn DM</a>
+                                    <a href="https://wa.me/995551518453" target="_blank"><i class="fab fa-whatsapp" style="width:18px;"></i> WhatsApp</a>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
                                 <h4 style="font-family:'Playfair Display',serif;">Social</h4>
                                 <div class="hi-footer-links">
                                     <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn</a>
-                                    <a href="https://x.com/HirschIndex" target="_blank"><i class="fab fa-x-twitter" style="width:18px;"></i> X</a>
+                                    <a href="https://x.com/HirschIndex" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true" style="margin-right:4px; vertical-align:-2px;"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 89.6 464H19L184.4 269.6 12.5 48H157.7l102.6 137 128.9-137zM360.7 422.2h39.1L156.5 88h-42L360.7 422.2z"/></svg>X</a>
                                     <a href="https://www.instagram.com/hirsch_index_school/" target="_blank"><i class="fab fa-instagram" style="width:18px;"></i> Instagram</a>
                                     <a href="https://www.facebook.com/profile.php?id=61573281606605" target="_blank"><i class="fab fa-facebook-f" style="width:18px;"></i> Facebook</a>
                                 </div>

@@ -1,1 +1,117 @@
-[]
+[
+  {
+    "num": "1",
+    "title": "Population and Sampling",
+    "block": "Patients, Data and Design",
+    "posts": [
+      {
+        "title": "",
+        "body": [
+          "This week we begin a new block - patients, data, and design. The first question of any study: who are we studying, and can we generalize the results? We'll explore the difference between a population and a sample - and why representativeness matters more than size."
+        ]
+      },
+      {
+        "title": "Who are we actually studying?",
+        "body": [
+          "You want to know how often patients with type 2 diabetes develop diabetic retinopathy. Who will you study?",
+          "Every diabetic in the world? That's the target population - the group you want your results to apply to. But studying all of them is impossible.",
+          "Every diabetic in your country? Closer - but still out of reach.",
+          "Patients with diabetes seen at your clinic? That's the accessible population - the group you can actually reach. This is where you'll recruit participants.",
+          "The problem is that the accessible population may differ significantly from the target. Patients at a university hospital are not the same as those at a community clinic. Urban residents are not the same as rural ones. Every step from target to accessible narrows the group and may introduce bias.",
+          "That's why a good Methods section always states: where participants were recruited, over what period, and from what population. Without this, the reader cannot judge to whom the results apply."
+        ]
+      },
+      {
+        "title": "A part instead of the whole.",
+        "body": [
+          "Even the accessible population is usually too large to examine entirely. So the researcher takes a portion of it - a sample.",
+          "How that portion is selected determines everything.",
+          "Random sampling - every member of the population has a known chance of being included. This is how large epidemiological surveys are designed.",
+          "Consecutive sampling - all patients admitted during a defined period. Simpler than random, and often reliable enough if patient flow is stable. The standard for clinical research.",
+          "Convenience sampling - whoever was available. Patients of one physician, volunteers, medical students. Fast and cheap, but the results are unpredictably biased. Convenience sampling is not forbidden - but the researcher must acknowledge it and discuss its limitations."
+        ]
+      },
+      {
+        "title": "Bigger doesn't mean better.",
+        "body": [
+          "In 1936, the Literary Digest magazine conducted a poll on the US presidential election. 2.4 million responses - an enormous sample. Prediction: Landon wins. Result: Roosevelt won by a landslide. Squire's analysis (https://doi.org/10.1086/269085) showed that the mailings went to telephone and car owners - people with above-average income. The sample was huge but non-representative.",
+          "In medicine, the same principle applies. In 1946, Berkson (https://doi.org/10.1093/ije/dyu022) demonstrated that two diseases completely unrelated in the general population can appear associated when studied only among hospitalized patients. Sicker patients are more likely to be admitted, and having two diagnoses further increases the probability of hospitalization. This is selection bias, now known as Berkson's bias.",
+          "Representativeness is not about size. It's about how well the sample reflects the population you want to generalize to. A thousand poorly selected patients are worse than a hundred properly selected ones."
+        ]
+      },
+      {
+        "title": "Summary",
+        "body": [
+          "Key takeaways:",
+          "1. The target population is the group you want your results to apply to. The accessible population is the group you can actually recruit from.",
+          "2. A sample is a portion of the population selected for the study. The method of selection determines the reliability of results.",
+          "3. Random sampling is the gold standard for epidemiological research. Consecutive sampling is an acceptable alternative for clinical studies. Convenience sampling is possible but rarely used.",
+          "4. Representativeness matters more than size. A large non-representative sample is worse than a small representative one.",
+          "5. Berkson's bias: studying only hospitalized patients can create spurious associations between diseases.",
+          "6. In the Methods section, always describe in detail where participants were recruited, over what period, and from what population."
+        ]
+      }
+    ]
+  },
+  {
+    "num": "2",
+    "title": "Inclusion and Exclusion Criteria",
+    "block": "Patients, Data and Design",
+    "posts": [
+      {
+        "title": "",
+        "body": [
+          "This week we continue the 'Patients, Data, and Design' block. Once you've defined the population and method of sampling, the next question is: who exactly qualifies for the study? Inclusion and exclusion criteria define the gate – and every criterion you add changes what your results actually mean."
+        ]
+      },
+      {
+        "title": "Who qualifies for the study?",
+        "body": [
+          "You've defined your target population. You've decided how to sample it. Now the next question: who exactly gets in?",
+          "Inclusion criteria answer that. They define who is eligible to participate in your study.",
+          "Good inclusion criteria are specific and clinically meaningful. Not \"adult patients with hypertension\" – but \"adults aged 40-75 with untreated essential hypertension, systolic blood pressure 140-160 mmHg, confirmed on at least two separate measurements.\"",
+          "Every criterion narrows the door – and should be justified. If you require a specific lab value, why that one? If you set an age range, why those boundaries?",
+          "Inclusion criteria are not the same as exclusion criteria. Inclusion defines the target frame: \"patients with disease X, stage Y, confirmed by method Z.\" Exclusion removes people who meet inclusion but shouldn't be in the study for a specific reason.",
+          "Think of it this way: inclusion opens the gate. Exclusion closes it to certain people who would otherwise enter."
+        ]
+      },
+      {
+        "title": "Who's removed – and why.",
+        "body": [
+          "Exclusion criteria remove patients who meet inclusion criteria but shouldn't be in the study. They exist for two reasons.",
+          "First, patient safety. A trial of a new anticoagulant excludes patients with active bleeding or severe liver disease. A study of a hepatotoxic drug excludes patients with pre-existing liver dysfunction. These exclusions protect participants from foreseeable harm.",
+          "Second, methodological clarity. If you're studying whether a new drug lowers cardiovascular mortality, you exclude patients with terminal cancer – not because the drug is dangerous for them, but because they'll die of something else first, and your signal drowns in noise.",
+          "The catch: every exclusion narrows the population you can speak about. Exclude diabetic patients, and your results don't apply to diabetics. Exclude the elderly, and your conclusions about 'adults' really mean 'middle-aged adults.'",
+          "Exclusion should be deliberate, not reflexive. Each criterion needs a specific justification – safety, outcome integrity, or logistic necessity. \"We excluded patients with comorbidities\" is not a justification. Which comorbidities? Why those?",
+          "Well-designed trials list exclusions with reasoning. Poorly designed ones list exclusions by tradition."
+        ]
+      },
+      {
+        "title": "The hidden cost of strict criteria.",
+        "body": [
+          "The stricter your eligibility criteria, the cleaner your data – and the less your results apply to real patients.",
+          "This is the efficacy-effectiveness gap. A drug that works perfectly in a trial of young, otherwise-healthy participants may behave differently in your 78-year-old patient with three chronic conditions and five other medications.",
+          "- 81.3% excluded patients with common medical conditions",
+          "- 54.1% excluded patients on common medications",
+          "- 38.5% excluded older adults",
+          "- Only 47.2% of exclusion criteria were strongly justified",
+          "In other words: most high-impact trials studied populations that barely resemble the patients we actually treat.",
+          "This is external validity – the extent to which trial results generalize beyond the trial sample. Strict criteria boost internal validity (the result is real within the study) at the expense of external validity (the result applies outside it).",
+          "There's no universally correct balance. But every trial should acknowledge this tension – and every reader should ask: do these patients look like mine?"
+        ]
+      },
+      {
+        "title": "Summary",
+        "body": [
+          "Key takeaways:",
+          "1. Inclusion criteria define who is eligible. Exclusion criteria remove specific people who would otherwise qualify.",
+          "2. Exclusion serves two purposes: patient safety (protecting participants from foreseeable harm) and methodological clarity (reducing noise that would obscure the signal).",
+          "3. Every criterion – inclusion or exclusion – must be justified. \"Patients with comorbidities were excluded\" is not a justification.",
+          "4. Strict criteria improve internal validity but damage external validity – the efficacy-effectiveness gap.",
+          "5. Van Spall 2007: in 283 top-journal RCTs, 81.3% excluded patients with common conditions, and fewer than half of exclusions were well-justified.",
+          "6. When reading a trial, always ask: do these patients look like the ones I treat?"
+        ]
+      }
+    ]
+  }
+]
