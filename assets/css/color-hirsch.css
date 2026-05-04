@@ -1,0 +1,217 @@
+:root {
+  --theme-color: #3366CC;
+  --secondary-color: #0f172a;
+}
+
+/*===== Primary Color (Blue #3366CC) =====*/
+
+/*===== Background Color =====*/
+.thm-bg,
+.thm-layer:before,
+.search-btn:hover,
+.search-btn:focus,
+.thm-btn.scndry-bg:before,
+.thm-btn.scndry-bg:after,
+.thm-btn.bg-black:before,
+.thm-btn.bg-black:after,
+.slick-slider > button.slick-arrow:hover,
+.slick-slider > button.slick-arrow:focus,
+.serv-box:hover .serv-box-inner:before,
+.serv-box-inner:after,
+.thm-shp:after,
+.team-img:before,
+.ftr-gal-list li a:before,
+.logo.v2:after,
+.feat-cap2 > span:not(.feat-cap-time):before,
+.feat-caro2.slick-slider > button.slick-arrow:hover,
+.feat-caro2.slick-slider > button.slick-arrow:focus,
+.special-box:after,
+header.style3 nav > div > ul > li > a:after,
+.social-links4 > a:hover,
+.social-links4 > a:focus,
+.pagination li.page-item.prev a.page-link:hover,
+.pagination li.page-item.next a.page-link:hover,
+.pagination li.page-item.prev a.page-link:focus,
+.pagination li.page-item.next a.page-link:focus,
+.rspn-mnu-btn:hover,
+.rspn-mnu-btn:focus,
+.rspn-mnu-cls:hover,
+.rspn-mnu-cls:focus,
+.search-close-btn:hover,
+.search-close-btn:focus,
+.header-search > form button:hover,
+.header-search > form button:focus,
+.sticky-menu nav > div > ul > li:hover > a,
+.sticky-menu nav > div > ul > li.active > a,
+.sticky-menu nav > div > ul > li > a:focus,
+.slick-slider:not(.feat-caro) ul.slick-dots > li button:hover,
+.slick-slider:not(.feat-caro) ul.slick-dots > li button:focus,
+.slick-slider:not(.feat-caro) ul.slick-dots > li.slick-active button,
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after
+{
+	background-color: var(--theme-color);
+}
+
+/*===== Text Color =====*/
+.thm-clr,
+.top-links > li a:hover,
+.top-links > li a:focus,
+.social-links > a:hover,
+.social-links > a:focus,
+nav ul li:hover > a,
+nav ul li.active > a,
+nav ul li > a:focus,
+.serv-box:hover > i,
+.simple-link.scndry-clr:hover,
+.simple-link.scndry-clr:focus,
+.serv-img2 > a:hover,
+.serv-img2 > a:focus,
+.team-info > h3 a:hover,
+.team-info > h3 a:focus,
+.news-box-inner > h3 a:hover,
+.news-box-inner > h3 a:focus,
+.widget-box ul > li:hover,
+.widget-box ul > li a:hover,
+.widget-box ul > li a:focus,
+form.newsletter-form button:hover,
+form.newsletter-form button:focus,
+.copyright-links > p a:hover,
+.copyright-links > p a:focus,
+.bottom-links > li a:hover,
+.bottom-links > li a:focus,
+.news-info2 > h3 a:hover,
+.news-info2 > h3 a:focus,
+.feat-serv-box > h3 a:hover,
+.feat-serv-box > h3 a:focus,
+.rsnp-mnu ul > li:hover > a,
+.rsnp-mnu ul > li.active-parent > a,
+.rsnp-mnu ul > li.active > a,
+.rsnp-mnu ul > li > a:focus,
+.meta > li a:hover,
+.meta > li a:focus,
+.meta2 > li a:hover,
+.meta2 > li a:focus
+{
+	color: var(--theme-color);
+}
+
+/*===== Border Color =====*/
+.thm-brd-clr,
+.pagination li.page-item.prev a.page-link:hover,
+.pagination li.page-item.next a.page-link:hover,
+.pagination li.page-item.prev a.page-link:focus,
+.pagination li.page-item.next a.page-link:focus
+{
+	border-color: var(--theme-color);
+}
+
+.about-inner > span,
+.simple-link.thm-clr,
+.simple-link.scndry-clr:hover,
+.simple-link.scndry-clr:focus,
+.about-desc > span.thm-clr,
+.meta2 > li a:hover,
+.meta2 > li a:focus
+{
+	border-bottom-color: var(--theme-color);
+}
+
+
+/*===== Secondary Color (Navy #0f172a) =====*/
+
+/*===== Background Color =====*/
+.scndry-bg,
+.scndry-layer:before,
+.thm-btn.thm-bg:before,
+.thm-btn.thm-bg:after,
+.slick-slider.feat-caro > button.slick-arrow,
+.serv-box-inner:before,
+.scndry-shp:after,
+.serv-info2 > h3 a:before,
+.team-info:before,
+.widget-title:before,
+.widget-title:after,
+.feat-caro2.slick-slider > button.slick-arrow,
+.serv-box2.v2 .serv-info2 > h3 a,
+.serv-box3:before,
+.pagination li.page-item.active a.page-link,
+.pagination li.page-item a.page-link:hover,
+.pagination li.page-item a.page-link:focus,
+.pagination li.page-item.prev a.page-link,
+.pagination li.page-item.next a.page-link,
+.gallery-box:before
+{
+	background-color: var(--secondary-color);
+}
+
+/*===== Text Color =====*/
+.scndry-clr,
+.simple-link.thm-clr:hover,
+.simple-link.thm-clr:focus,
+.serv-box3:hover .serv-info3 > i,
+.thm-bg .simple-link:hover,
+.thm-bg .simple-link:focus,
+ol.breadcrumb li.breadcrumb-item a:hover,
+ol.breadcrumb li.breadcrumb-item a:focus,
+ol.breadcrumb li.breadcrumb-item.active,
+.team-box:hover .team-info > span,
+.sticky-menu.v2 nav > div > ul > li:hover > a,
+.sticky-menu.v2 nav > div > ul > li.active > a,
+.sticky-menu.v2 nav > div > ul > li > a:focus
+{
+	color: var(--secondary-color);
+}
+
+/*===== Border Color =====*/
+.scndry-brd-clr,
+.testi-nav-item > img,
+.pagination li.page-item.active a.page-link,
+.pagination li.page-item a.page-link:hover,
+.pagination li.page-item a.page-link:focus,
+.pagination li.page-item.prev a.page-link,
+.pagination li.page-item.next a.page-link,
+.preloader-inner:before
+{
+	border-color: var(--secondary-color);
+}
+
+.simple-link.thm-clr:hover,
+.simple-link.thm-clr:focus,
+.simple-link.scndry-clr,
+.thm-bg .simple-link:hover,
+.thm-bg .simple-link:focus,
+.about-desc > span.scndry-clr
+{
+	border-bottom-color: var(--secondary-color);
+}
+
+/*===== Hirsch Index Custom Overrides =====*/
+
+/* Teal accent for secondary highlights */
+.hi-teal { color: #2BB5A0; }
+.hi-teal-bg { background-color: #2BB5A0; }
+
+/* Gold accent for premium/club elements */
+.hi-gold { color: #c5a065; }
+.hi-gold-bg { background-color: #c5a065; }
+
+/* Override gradient backgrounds for our brand */
+.grad-bg1 {
+  background: linear-gradient(135deg, #3366CC 0%, #2BB5A0 100%);
+}
+.grad-bg2 {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* Button teal variant */
+.thm-btn.hi-teal-bg:before,
+.thm-btn.hi-teal-bg:after {
+  background-color: #239688;
+}
+
+/* Button gold variant */
+.thm-btn.hi-gold-bg:before,
+.thm-btn.hi-gold-bg:after {
+  background-color: #b8944d;
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Terms of Service — Hirsch Index</title>
+    <link rel="icon" href="assets/logo-main.jpg" sizes="35x35" type="image/jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/color-hirsch.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+
+        /* Nav */
+        .hi-nav { position:fixed; top:0; left:0; right:0; height:70px; background:#fff; border-bottom:1px solid #e2e8f0; z-index:9999; display:flex; align-items:center; }
+        .hi-nav-inner { max-width:1150px; margin:0 auto; padding:0 20px; width:100%; display:flex; align-items:center; justify-content:space-between; }
+        .hi-nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+        .hi-nav-logo img { width:36px; height:36px; border-radius:6px; }
+        .logo-text-hi { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:bold; color:#3366CC; margin-left:10px; }
+        .hi-nav-menu { display:flex; align-items:center; gap:28px; list-style:none; margin:0; padding:0; }
+        .hi-nav-menu a { font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:500; color:#475569; text-decoration:none; transition:color 0.2s; }
+        .hi-nav-menu a:hover { color:#3366CC; }
+        .hi-nav-tg { display:inline-flex; align-items:center; gap:6px; background:#3366CC; color:#fff; padding:9px 20px; border-radius:8px; font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:500; text-decoration:none; transition:background 0.2s; white-space:nowrap; }
+        .hi-nav-tg:hover { background:#2952a3; color:#fff; }
+        .hi-nav-right { display:flex; align-items:center; gap:28px; }
+        .hi-burger { display:none; background:none; border:none; font-size:1.5rem; color:#1e293b; cursor:pointer; }
+        .hi-mobile-menu { display:none; position:fixed; top:70px; left:0; right:0; background:#fff; border-bottom:1px solid #e2e8f0; padding:20px; z-index:9998; flex-direction:column; gap:16px; }
+        .hi-mobile-menu.open { display:flex; }
+        .hi-mobile-menu a { font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; color:#1e293b; text-decoration:none; padding:8px 0; }
+        @media (max-width:991px) { .hi-nav-menu { display:none; } .hi-burger { display:block; } .hi-nav-tg { display:none !important; } }
+
+        /* Page hero */
+        .hi-page-hero { padding:140px 0 50px; background:linear-gradient(135deg, #f8fafc, #eff6ff); text-align:center; }
+        .hi-page-hero h1 { font-size:2.5rem; margin-bottom:16px; color:#0f172a; }
+
+        /* Legal content */
+        .hi-legal { max-width:800px; margin:0 auto; padding:50px 20px 80px; font-size:0.95rem; line-height:1.8; color:#475569; }
+        .hi-legal h2 { font-size:1.3rem; color:#1e293b; margin:32px 0 12px; }
+        .hi-legal h3 { font-size:1.1rem; color:#1e293b; margin:24px 0 8px; }
+        .hi-legal p { margin-bottom:12px; }
+        .hi-legal ul, .hi-legal ol { margin-bottom:12px; padding-left:20px; }
+        .hi-legal li { margin-bottom:6px; }
+        .hi-legal a { color:#3366CC; }
+
+        /* Footer */
+        .hi-footer a { color:#94a3b8; text-decoration:none; }
+        .hi-footer a:hover { color:#fff; }
+        .hi-footer h4 { color:#fff; margin-bottom:16px; font-size:0.95rem; }
+        .hi-footer-links { display:flex; flex-direction:column; gap:8px; font-size:0.9rem; }
+        .hi-footer-bottom { border-top:1px solid rgba(255,255,255,0.1); margin-top:40px; padding-top:20px; display:flex; justify-content:space-between; font-size:0.8rem; color:#94a3b8; flex-wrap:wrap; gap:10px; }
+        @media (max-width:991px) { .hi-footer-bottom { flex-direction:column; text-align:center; } }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- ===== Navigation ===== -->
+        <div class="hi-nav">
+            <div class="hi-nav-inner">
+                <a href="index.html" class="hi-nav-logo">
+                    <img src="assets/logo-main.jpg" alt="Hirsch Index">
+                    <span class="logo-text-hi">Hirsch Index</span>
+                </a>
+                <div class="hi-nav-right">
+                    <ul class="hi-nav-menu">
+                        <li><a href="consulting.html">Консалтинг</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="resources.html">Ресурсы</a></li>
+                    </ul>
+                    <button class="hi-burger" onclick="document.getElementById('hiMobile').classList.toggle('open')" aria-label="Меню">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hi-mobile-menu" id="hiMobile">
+            <a href="consulting.html">Консалтинг</a>
+            <a href="blog.html">Блог</a>
+            <a href="resources.html">Ресурсы</a>
+        </div>
+
+        <!-- ===== Page Hero ===== -->
+        <section class="hi-page-hero">
+            <div class="container">
+                <h1>Публичная оферта</h1>
+            </div>
+        </section>
+
+        <!-- ===== Legal Content ===== -->
+        <div class="hi-legal">
+            <p style="color:#64748b; font-size:0.85rem; margin-bottom:30px;">г. Москва &middot; редакция 2026 года</p>
+
+            <p>Настоящая Публичная оферта (далее — «Оферта») является официальным предложением физического лица, применяющего специальный налоговый режим «Налог на профессиональный доход» (далее — «Исполнитель»), заключить договор на оказание консультационных, редакторских и образовательных услуг (далее — «Услуги») на условиях, изложенных ниже.</p>
+
+            <h3>1. Общие положения</h3>
+            <ul>
+                <li>В соответствии со статьёй 437 ГК РФ данный документ является публичной офертой.</li>
+                <li>Оплата Услуг любым способом, указанным Исполнителем, означает безусловный акцепт настоящей Оферты Заказчиком.</li>
+                <li>Исполнитель оказывает услуги лично, без привлечения наёмных работников, в рамках режима НПД (самозанятый).</li>
+            </ul>
+
+            <h3>2. Предмет договора</h3>
+            <p>Исполнитель оказывает Заказчику консультационные, редакционно-методические и образовательные услуги, направленные на методическую поддержку научных исследований и публикационной деятельности.</p>
+            <p>К таким услугам относятся, в том числе:</p>
+            <ul>
+                <li>научно-методическое консультирование по подготовке и оформлению материалов;</li>
+                <li>редакторская правка и структурирование текстов;</li>
+                <li>статистическая обработка и визуализация данных;</li>
+                <li>обучение и наставничество по научному письму;</li>
+                <li>предоставление доступа к образовательным материалам (видеокурсы, вебинары);</li>
+                <li>подготовка материалов совместно с автором по требованиям журналов и ВАК.</li>
+            </ul>
+            <p>Услуги оказываются дистанционно с использованием электронной почты, мессенджеров, видеосвязи и иных средств связи.</p>
+
+            <h3>3. Порядок оказания и оплаты услуг</h3>
+            <ul>
+                <li>Заказчик направляет Исполнителю запрос (в устной или письменной форме) с описанием требуемых услуг.</li>
+                <li>Исполнитель сообщает стоимость и сроки оказания услуг.</li>
+                <li>Оплата производится безналичным переводом на реквизиты Исполнителя или через платёжные системы (Tribute, GetCourse и др.).</li>
+                <li>После получения оплаты Исполнитель направляет Заказчику электронный чек самозанятого (НПД).</li>
+                <li>Моментом заключения Договора является момент оплаты Заказчиком.</li>
+            </ul>
+
+            <h3>4. Права и обязанности сторон</h3>
+            <p><strong>Исполнитель обязуется:</strong></p>
+            <ul>
+                <li>оказать услуги лично, качественно и в согласованные сроки;</li>
+                <li>сохранять конфиденциальность материалов Заказчика;</li>
+                <li>выдавать электронный чек НПД в соответствии с законодательством.</li>
+            </ul>
+            <p><strong>Заказчик обязуется:</strong></p>
+            <ul>
+                <li>предоставить необходимую информацию и материалы;</li>
+                <li>своевременно оплатить услуги.</li>
+            </ul>
+            <p style="background:#f1f5f9; padding:15px; border-left:4px solid #3366CC; font-style:italic; font-size:0.9rem;">Исполнитель не несёт ответственности за конечное решение редакций журналов и за оригинальность текста, предоставленного Заказчиком.</p>
+
+            <h3>5. Стоимость и расчёты</h3>
+            <ul>
+                <li>Стоимость услуг определяется по согласованию сторон и указывается в сообщении Исполнителя (e-mail, мессенджер и т. п.) или на сайте (для образовательных программ).</li>
+                <li>Цена включает все налоги и сборы, уплачиваемые Исполнителем в рамках НПД.</li>
+                <li>Оплата подтверждает согласие с условиями настоящей Оферты.</li>
+            </ul>
+
+            <h3>6. Возврат средств</h3>
+            <ul>
+                <li>Возврат стоимости образовательных программ возможен в течение 14 дней с момента оплаты, если Заказчик прошёл не более 3 уроков (занятий).</li>
+                <li>Возврат стоимости консультационных услуг регулируется индивидуально.</li>
+            </ul>
+
+            <h3>7. Конфиденциальность и авторские права</h3>
+            <ul>
+                <li>Материалы Заказчика используются исключительно для выполнения услуг и не передаются третьим лицам.</li>
+                <li>Результаты оказанных услуг (отредактированные тексты, отчёты, таблицы, рисунки) Заказчик вправе использовать по своему усмотрению.</li>
+                <li>Исполнитель не претендует на авторство материалов Заказчика.</li>
+                <li>Образовательные материалы (видео, шаблоны, методички) являются интеллектуальной собственностью Исполнителя и не подлежат распространению.</li>
+            </ul>
+
+            <h3>8. Ответственность сторон</h3>
+            <ul>
+                <li>Стороны несут ответственность в соответствии с законодательством РФ.</li>
+                <li>Исполнитель не отвечает за убытки, возникшие вследствие неправильного использования Заказчиком результатов услуг.</li>
+            </ul>
+
+            <h3>9. Заключительные положения</h3>
+            <ul>
+                <li>Оферта действует бессрочно и может быть изменена Исполнителем путём публикации новой редакции на сайте.</li>
+                <li>Во всех неурегулированных случаях стороны руководствуются действующим законодательством РФ.</li>
+            </ul>
+
+            <div style="background:#f8fafc; padding:25px; border-radius:8px; border:1px solid #e2e8f0; margin-top:40px; font-size:0.9rem; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                <div>
+                    <strong style="display:block; color:#3366CC; margin-bottom:4px;">Исполнитель:</strong>
+                    Жигалов Константин Юрьевич
+                </div>
+                <div>
+                    <strong style="display:block; color:#3366CC; margin-bottom:4px;">Статус:</strong>
+                    Самозанятый (НПД)
+                </div>
+                <div>
+                    <strong style="display:block; color:#3366CC; margin-bottom:4px;">ИНН:</strong>
+                    231223522705
+                </div>
+                <div>
+                    <strong style="display:block; color:#3366CC; margin-bottom:4px;">Контакты:</strong>
+                    <a href="mailto:zhigalovmd@yandex.ru">zhigalovmd@yandex.ru</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Footer ===== -->
+        <footer>
+            <div class="w-100 pt-90 dark-layer opc9 pb-50 position-relative hi-footer" style="background:#0f172a;">
+                <div class="container">
+                    <div class="row" style="gap:0;">
+                        <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                            <h4 style="font-family:'Playfair Display',serif;">Hirsch Index</h4>
+                            <div class="hi-footer-links">
+                                <a href="consulting.html">Консалтинг</a>
+                                <a href="blog.html">Блог</a>
+                                <a href="resources.html">Ресурсы</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                            <h4 style="font-family:'Playfair Display',serif;">Contact</h4>
+                                <div class="hi-footer-links">
+                                    <a href="mailto:zhigalovmd@yandex.ru"><i class="fas fa-envelope" style="width:18px;"></i> zhigalovmd@yandex.ru</a>
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn DM</a>
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                            <h4 style="font-family:'Playfair Display',serif;">Social</h4>
+                                <div class="hi-footer-links">
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn</a>
+                                    <a href="https://x.com/HirschIndex" target="_blank"><i class="fab fa-x-twitter" style="width:18px;"></i> X</a>
+                                    <a href="https://www.instagram.com/hirsch_index_school/" target="_blank"><i class="fab fa-instagram" style="width:18px;"></i> Instagram</a>
+                                    <a href="https://www.facebook.com/profile.php?id=61573281606605" target="_blank"><i class="fab fa-facebook-f" style="width:18px;"></i> Facebook</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="hi-footer-bottom">
+                        <span>&copy; 2026 Hirsch Index. All rights reserved.</span>
+                        <span><a href="offer.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/custom-scripts.js"></script>
+</body>
+</html>

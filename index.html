@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Hirsch Index — a school of scientific publishing. We guide physicians and researchers from idea to publication in Scopus-indexed journals.">
+        <link rel="icon" href="assets/logo-main.jpg" sizes="35x35" type="image/jpeg">
+        <title>Hirsch Index — School of Scientific Publishing</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/all.min.css">
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/slick.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/color-hirsch.css">
+
+        <style>
+            /* ===== Hirsch Index Custom Overrides ===== */
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+            h1, h2, h3, h4, h5, h6,
+            .sec-title h2,
+            .sec-title-inner h2,
+            .special-box-inner h4,
+            .fact-box-inner span,
+            .widget-title2 {
+                font-family: 'Playfair Display', serif;
+            }
+
+            /* Custom nav — bypasses all template header styles */
+            .hi-nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 70px;
+                background: #fff;
+                border-bottom: 1px solid #e2e8f0;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+            }
+            .hi-nav-inner {
+                max-width: 1150px;
+                margin: 0 auto;
+                padding: 0 20px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .hi-nav-logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-decoration: none;
+            }
+            .hi-nav-logo img {
+                width: 36px;
+                height: 36px;
+                border-radius: 6px;
+            }
+            .hi-nav-menu {
+                display: flex;
+                align-items: center;
+                gap: 28px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .hi-nav-menu a {
+                font-family: 'Inter', sans-serif;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: #475569;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+            .hi-nav-menu a:hover { color: #3366CC; }
+            .hi-nav-tg {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: #3366CC;
+                color: #fff;
+                padding: 9px 20px;
+                border-radius: 8px;
+                font-family: 'Inter', sans-serif;
+                font-size: 0.85rem;
+                font-weight: 500;
+                text-decoration: none;
+                transition: background 0.2s;
+                white-space: nowrap;
+            }
+            .hi-nav-tg:hover { background: #2952a3; color: #fff; }
+            .hi-nav-right {
+                display: flex;
+                align-items: center;
+                gap: 28px;
+            }
+            .hi-burger {
+                display: none;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #1e293b;
+                cursor: pointer;
+            }
+            .hi-mobile-menu {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border-bottom: 1px solid #e2e8f0;
+                padding: 20px;
+                z-index: 9998;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .hi-mobile-menu.open { display: flex; }
+            .hi-mobile-menu a {
+                font-family: 'Inter', sans-serif;
+                font-size: 1rem;
+                font-weight: 500;
+                color: #1e293b;
+                text-decoration: none;
+                padding: 8px 0;
+            }
+            .hi-mobile-menu a:hover { color: #3366CC; }
+            @media (max-width: 991px) {
+                .hi-nav-menu { display: none; }
+                .hi-burger { display: block; }
+                .hi-nav-tg { display: none !important; }
+            }
+            .logo-text-hi {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.15rem;
+                font-weight: bold;
+                color: #3366CC;
+                margin-left: 10px;
+            }
+
+            /* Hero section */
+            .hi-hero {
+                padding: 160px 0 100px;
+                background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #ecfdf5 100%);
+                position: relative;
+                overflow: hidden;
+            }
+            .hi-hero::after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -20%;
+                width: 600px;
+                height: 600px;
+                background: radial-gradient(circle, rgba(43,181,160,0.08) 0%, transparent 70%);
+                border-radius: 50%;
+            }
+            .hi-hero-content {
+                max-width: 720px;
+                margin: 0 auto;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+            }
+            .hi-hero-subtitle {
+                font-size: 1.2rem;
+                color: #475569;
+                margin-bottom: 12px;
+                font-weight: 400;
+            }
+            .hi-hero h1 {
+                font-size: 3.2rem;
+                color: #0f172a;
+                margin-bottom: 24px;
+                line-height: 1.15;
+            }
+            .hi-hero h1 span {
+                color: #3366CC;
+            }
+            .hi-hero p {
+                font-size: 1.15rem;
+                color: #475569;
+                margin-bottom: 36px;
+                max-width: 580px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            /* Pillar cards */
+            .hi-pillar {
+                background: #fff;
+                padding: 36px 28px;
+                border-radius: 16px;
+                border: 1px solid #e2e8f0;
+                transition: 0.3s;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100%;
+            }
+            .hi-pillar:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            }
+            .hi-pillar img {
+                width: 72px;
+                height: 72px;
+                border-radius: 16px;
+                margin-bottom: 20px;
+                object-fit: cover;
+            }
+            .hi-pillar h3 {
+                margin-bottom: 12px;
+                font-size: 1.3rem;
+            }
+            .hi-pillar p {
+                font-size: 0.9rem;
+                color: #475569;
+                margin-bottom: 20px;
+                flex: 1;
+            }
+
+            /* Founder section */
+            .hi-founder-badges {
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-top: 20px;
+            }
+            .hi-founder-badge {
+                background: #f1f5f9;
+                padding: 8px 16px;
+                border-radius: 6px;
+                font-size: 0.85rem;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-family: 'Inter', sans-serif;
+            }
+            .hi-founder-badge i {
+                color: #3366CC;
+            }
+
+            /* Scientometric profiles */
+            .hi-profile-card {
+                display: flex;
+                align-items: center;
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                padding: 18px 25px;
+                border-radius: 12px;
+                transition: 0.3s;
+                text-decoration: none;
+            }
+            .hi-profile-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                border-color: #3366CC;
+            }
+            .hi-p-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 16px;
+                color: #fff;
+                font-size: 20px;
+                flex-shrink: 0;
+            }
+            .hi-p-icon.scopus { background: #EB5F07; }
+            .hi-p-icon.scholar { background: #4285F4; }
+            .hi-p-icon.orcid { background: #A6CE39; }
+            .hi-p-label {
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                color: #94a3b8;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                margin-bottom: 2px;
+            }
+            .hi-p-value {
+                font-size: 0.95rem;
+                color: #1e293b;
+                font-weight: 600;
+            }
+            .hi-p-stats {
+                font-size: 0.8rem;
+                color: #475569;
+                margin-top: 4px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            .hi-h-badge {
+                background: #f1f5f9;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-weight: bold;
+                color: #3366CC;
+            }
+
+            /* Social cards */
+            .hi-social-card {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                padding: 18px 28px;
+                border-radius: 12px;
+                transition: 0.3s;
+                text-decoration: none;
+                color: #1e293b;
+            }
+            .hi-social-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                color: #1e293b;
+            }
+            .hi-social-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 20px;
+                flex-shrink: 0;
+            }
+            .hi-social-icon.tg { background: #2AABEE; }
+            .hi-social-icon.vk { background: #4C75A3; }
+
+            /* Footer overrides */
+            .hi-footer a { color: #94a3b8; text-decoration: none; }
+            .hi-footer a:hover { color: #fff; }
+            .hi-footer h4 {
+                color: #fff;
+                margin-bottom: 16px;
+                font-size: 0.95rem;
+            }
+            .hi-footer-links {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                font-size: 0.9rem;
+            }
+            .hi-footer-bottom {
+                border-top: 1px solid rgba(255,255,255,0.1);
+                margin-top: 40px;
+                padding-top: 20px;
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.8rem;
+                color: #94a3b8;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            /* Mobile hero */
+            @media (max-width: 991px) {
+                .hi-hero h1 { font-size: 2.2rem; }
+                .hi-hero { padding: 120px 0 60px; }
+                .hi-hero-buttons { flex-direction: column; align-items: stretch; }
+                .hi-hero-buttons .thm-btn { text-align: center; display: block; }
+                .hi-social-grid { flex-direction: column; }
+                .hi-social-card { width: 100%; }
+                .hi-profile-grid { flex-direction: column; }
+                .hi-profile-card { width: 100%; }
+                .hi-founder-badges { justify-content: center; }
+                .hi-footer-bottom { flex-direction: column; text-align: center; }
+            }
+            @media (max-width: 900px) {
+                .hi-founder-section { flex-direction: column; text-align: center; }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <!-- ===== Navigation ===== -->
+            <div class="hi-nav">
+                <div class="hi-nav-inner">
+                    <a href="index.html" class="hi-nav-logo">
+                        <img src="assets/logo-main.jpg" alt="Hirsch Index">
+                        <span class="logo-text-hi">Hirsch Index</span>
+                    </a>
+                    <div class="hi-nav-right">
+                        <ul class="hi-nav-menu">
+                            <li><a href="consulting.html">Consulting</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="resources.html">Resources</a></li>
+                        </ul>
+                        <button class="hi-burger" onclick="document.getElementById('hiMobile').classList.toggle('open')" aria-label="Menu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hi-mobile-menu" id="hiMobile">
+                <a href="consulting.html">Consulting</a>
+                <a href="blog.html">Blog</a>
+                <a href="resources.html">Resources</a>
+            </div>
+
+            <!-- ===== Hero ===== -->
+            <section>
+                <div class="hi-hero w-100 position-relative">
+                    <div class="container">
+                        <div class="hi-hero-content wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="hi-hero-subtitle">A school of scientific medical writing</div>
+                            <h1><span>Hirsch Index</span></h1>
+                            <p>We turn your ideas into peer-reviewed publications.</p>
+                            <div class="hi-hero-buttons d-flex gap-3 justify-content-center flex-wrap">
+                                <a class="thm-btn v2 thm-bg brd-rd5 d-inline-block position-relative overflow-hidden" href="consulting.html" title="" style="min-width:200px;">Book a consultation</a>
+                                <a class="thm-btn v2 brd-rd5 d-inline-block position-relative overflow-hidden" href="blog.html" title="" style="min-width:200px; background:white; color:#1e293b; border:1px solid #e2e8f0;">Read the blog</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ===== Ecosystem (4 Pillars) ===== -->
+            <section>
+                <div class="w-100 pt-100 pb-100 position-relative">
+                    <div class="container">
+                        <div class="sec-title v2 text-center w-100 wow fadeInUp">
+                            <div class="sec-title-inner d-inline-block">
+                                <h2 class="mb-0 text-color3">Hirsch Index ecosystem</h2>
+                                <p class="mb-0" style="font-family:'Inter',sans-serif; color:#475569;">Four directions, one goal — your publication in a peer-reviewed journal</p>
+                            </div>
+                        </div>
+                        <div class="row mrg30">
+                            <div class="col-md-6 col-lg-3">
+                                <a href="consulting.html" class="hi-pillar wow fadeInUp" data-wow-delay="0.1s" style="text-decoration:none; color:inherit;">
+                                    <img src="assets/logo-consulting.jpg" alt="Consulting">
+                                    <h3>Consulting</h3>
+                                    <p>One-on-one guidance: study design, statistics, editing, journal submission.</p>
+                                    <span style="display:inline-block; background:#fff; color:#475569; border:1px solid #e2e8f0; padding:10px 20px; font-size:0.85rem; border-radius:8px; font-family:'Inter',sans-serif; font-weight:500; transition:border-color 0.2s, color 0.2s;">Learn more</span>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a href="blog.html" class="hi-pillar wow fadeInUp" data-wow-delay="0.2s" style="text-decoration:none; color:inherit;">
+                                    <img src="assets/logo-blog.jpg" alt="Blog">
+                                    <h3>Blog</h3>
+                                    <p>The ABCs of medical science — notes on scientific writing, methodology, and publishing.</p>
+                                    <span style="display:inline-block; background:#fff; color:#475569; border:1px solid #e2e8f0; padding:10px 20px; font-size:0.85rem; border-radius:8px; font-family:'Inter',sans-serif; font-weight:500; transition:border-color 0.2s, color 0.2s;">Learn more</span>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a href="resources.html" class="hi-pillar wow fadeInUp" data-wow-delay="0.3s" style="text-decoration:none; color:inherit;">
+                                    <img src="assets/logo-edu.jpg" alt="Resources">
+                                    <h3>Resources</h3>
+                                    <p>Free tools, templates, and checklists for researchers at every stage of the publication process.</p>
+                                    <span style="display:inline-block; background:#fff; color:#475569; border:1px solid #e2e8f0; padding:10px 20px; font-size:0.85rem; border-radius:8px; font-family:'Inter',sans-serif; font-weight:500; transition:border-color 0.2s, color 0.2s;">Learn more</span>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a href="#about" class="hi-pillar wow fadeInUp" data-wow-delay="0.4s" style="text-decoration:none; color:inherit;">
+                                    <img src="assets/logo-club.jpg" alt="About">
+                                    <h3>About</h3>
+                                    <p>About the founder and the Hirsch Index mission — helping researchers publish internationally.</p>
+                                    <span style="display:inline-block; background:#fff; color:#475569; border:1px solid #e2e8f0; padding:10px 20px; font-size:0.85rem; border-radius:8px; font-family:'Inter',sans-serif; font-weight:500; transition:border-color 0.2s, color 0.2s;">Learn more</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== About / Founder ===== -->
+            <section id="about">
+                <div class="w-100 pt-100 pb-100 position-relative" style="background:#f8fafc;">
+                    <div class="container">
+                        <div class="row mrg30 align-items-center">
+                            <div class="col-md-12 col-lg-6 wow fadeInLeft">
+                                <div class="about-desc w-100">
+                                    <span class="thm-clr d-inline-block" style="font-family:'Inter',sans-serif; font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.05em;">Founder</span>
+                                    <h2 class="mb-0" style="margin-top:12px;">Konstantin Zhigalov, MD, PhD</h2>
+                                    <p class="mb-0" style="margin-top:16px; font-family:'Inter',sans-serif; color:#475569;">Cardiac surgeon with years of clinical and research experience at university hospitals in Germany. Earned his PhD at Charité — Universitätsmedizin Berlin. Author of 70+ publications in international peer-reviewed journals.</p>
+                                    <p class="mb-0" style="margin-top:16px; font-family:'Inter',sans-serif; color:#475569;">Founded Hirsch Index to help physicians and researchers worldwide cross the barrier to international publication — from picking a topic to getting a DOI.</p>
+                                    <div class="hi-founder-badges" style="margin-top:24px;">
+                                        <div class="hi-founder-badge"><i class="fas fa-graduation-cap"></i> MD, PhD</div>
+                                        <div class="hi-founder-badge"><i class="fas fa-chart-line"></i> h-index 16</div>
+                                        <div class="hi-founder-badge"><i class="fas fa-file-alt"></i> 70+ publications</div>
+                                        <div class="hi-founder-badge"><i class="fas fa-language"></i> EN / DE / RU</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-6 wow fadeInRight">
+                                <!-- Scientometric Profiles -->
+                                <div class="d-flex flex-column gap-3 hi-profile-grid" style="gap:16px;">
+                                    <a href="https://www.scopus.com/authid/detail.uri?authorId=57517490500" target="_blank" class="hi-profile-card">
+                                        <div class="hi-p-icon scopus"><i class="fas fa-chart-line"></i></div>
+                                        <div>
+                                            <div class="hi-p-label">Scopus</div>
+                                            <div class="hi-p-value">ID 57517490500</div>
+                                            <div class="hi-p-stats">H-Index: <span class="hi-h-badge">16</span></div>
+                                        </div>
+                                    </a>
+                                    <a href="https://scholar.google.com/citations?user=AgmsZFAAAAAJ&hl=ru&oi=ao" target="_blank" class="hi-profile-card">
+                                        <div class="hi-p-icon scholar"><i class="fas fa-graduation-cap"></i></div>
+                                        <div>
+                                            <div class="hi-p-label">Google Scholar</div>
+                                            <div class="hi-p-value">Konstantin Zhigalov</div>
+                                            <div class="hi-p-stats">H-Index: <span class="hi-h-badge">19</span></div>
+                                        </div>
+                                    </a>
+                                    <a href="https://orcid.org/0000-0002-6440-3736" target="_blank" class="hi-profile-card">
+                                        <div class="hi-p-icon orcid"><i class="fab fa-orcid"></i></div>
+                                        <div>
+                                            <div class="hi-p-label">ORCID</div>
+                                            <div class="hi-p-value">0000-0002-6440-3736</div>
+                                            <div class="hi-p-stats" style="color:#94a3b8;">Verified Record</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ===== Social Channels ===== -->
+            <section>
+                <div class="w-100 pt-100 pb-100 position-relative">
+                    <div class="container">
+                        <div class="sec-title v2 text-center w-100 wow fadeInUp">
+                            <div class="sec-title-inner d-inline-block">
+                                <h2 class="mb-0 text-color3">Follow us</h2>
+                                <p class="mb-0" style="font-family:'Inter',sans-serif; color:#475569;">Educational content on scientific publishing</p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center flex-wrap hi-social-grid" style="gap:24px;">
+                            <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank" class="hi-social-card wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="hi-social-icon" style="background:#0A66C2; color:#fff;"><i class="fab fa-linkedin-in"></i></div>
+                                <div>
+                                    <div style="font-weight:600;">LinkedIn</div>
+                                    <div style="font-size:0.85rem; color:#475569;">Konstantin Zhigalov</div>
+                                </div>
+                            </a>
+                            <a href="https://x.com/HirschIndex" target="_blank" class="hi-social-card wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="hi-social-icon" style="background:#000; color:#fff;"><i class="fab fa-x-twitter"></i></div>
+                                <div>
+                                    <div style="font-weight:600;">X</div>
+                                    <div style="font-size:0.85rem; color:#475569;">@HirschIndex</div>
+                                </div>
+                            </a>
+                            <a href="https://www.instagram.com/hirsch_index_school/" target="_blank" class="hi-social-card wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="hi-social-icon" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff;"><i class="fab fa-instagram"></i></div>
+                                <div>
+                                    <div style="font-weight:600;">Instagram</div>
+                                    <div style="font-size:0.85rem; color:#475569;">@hirsch_index_school</div>
+                                </div>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61573281606605" target="_blank" class="hi-social-card wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="hi-social-icon" style="background:#1877F2; color:#fff;"><i class="fab fa-facebook-f"></i></div>
+                                <div>
+                                    <div style="font-weight:600;">Facebook</div>
+                                    <div style="font-size:0.85rem; color:#475569;">Hirsch Index</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== CTA ===== -->
+            <section>
+                <div class="w-100 pt-70 scndry-bg pb-70 position-relative text-center">
+                    <div class="container wow fadeInUp">
+                        <h2 style="color:#fff; margin-bottom:24px;">Ready to start?</h2>
+                        <p style="color:rgba(255,255,255,0.7); margin-bottom:40px; max-width:500px; margin-left:auto; margin-right:auto; font-family:'Inter',sans-serif;">Join a community of physician-researchers publishing internationally</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a class="thm-btn v2 thm-bg brd-rd5 d-inline-block position-relative overflow-hidden" href="consulting.html" title="">Book a consultation</a>
+                            <a class="thm-btn v2 brd-rd5 d-inline-block position-relative overflow-hidden" href="blog.html" title="" style="background-color:#c5a065;">Read the blog</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== Footer ===== -->
+            <footer>
+                <div class="w-100 pt-90 dark-layer opc9 pb-50 position-relative hi-footer" style="background:#0f172a;">
+                    <div class="container">
+                        <div class="row" style="gap:0;">
+                            <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                                <h4 style="font-family:'Playfair Display',serif;">Hirsch Index</h4>
+                                <div class="hi-footer-links">
+                                    <a href="consulting.html">Consulting</a>
+                                    <a href="blog.html">Blog</a>
+                                    <a href="resources.html">Resources</a>
+                                    <a href="#about">About</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                                <h4 style="font-family:'Playfair Display',serif;">Contact</h4>
+                                <div class="hi-footer-links">
+                                    <a href="mailto:zhigalovmd@yandex.ru"><i class="fas fa-envelope" style="width:18px;"></i> zhigalovmd@yandex.ru</a>
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn DM</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                                <h4 style="font-family:'Playfair Display',serif;">Social</h4>
+                                <div class="hi-footer-links">
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn</a>
+                                    <a href="https://x.com/HirschIndex" target="_blank"><i class="fab fa-x-twitter" style="width:18px;"></i> X</a>
+                                    <a href="https://www.instagram.com/hirsch_index_school/" target="_blank"><i class="fab fa-instagram" style="width:18px;"></i> Instagram</a>
+                                    <a href="https://www.facebook.com/profile.php?id=61573281606605" target="_blank"><i class="fab fa-facebook-f" style="width:18px;"></i> Facebook</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hi-footer-bottom">
+                            <span>&copy; 2026 Hirsch Index. All rights reserved.</span>
+                            <span><a href="offer.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/counterup.min.js"></script>
+        <script src="assets/js/slick.min.js"></script>
+        <script src="assets/js/custom-scripts.js"></script>
+    </body>
+</html>

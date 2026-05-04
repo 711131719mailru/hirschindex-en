@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="The ABCs of medical science — notes on scientific writing, methodology, and publishing. Hirsch Index.">
+        <link rel="icon" href="assets/logo-main.jpg" sizes="35x35" type="image/jpeg">
+        <title>Blog — Hirsch Index</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/all.min.css">
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/color-hirsch.css">
+
+        <style>
+            body { font-family: 'Inter', sans-serif; }
+            h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+
+            /* Shared nav */
+            .hi-nav { position:fixed; top:0; left:0; right:0; height:70px; background:#fff; border-bottom:1px solid #e2e8f0; z-index:9999; display:flex; align-items:center; }
+            .hi-nav-inner { max-width:1150px; margin:0 auto; padding:0 20px; width:100%; display:flex; align-items:center; justify-content:space-between; }
+            .hi-nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+            .hi-nav-logo img { width:36px; height:36px; border-radius:6px; }
+            .logo-text-hi { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:bold; color:#3366CC; margin-left:10px; }
+            .hi-nav-menu { display:flex; align-items:center; gap:28px; list-style:none; margin:0; padding:0; }
+            .hi-nav-menu a { font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:500; color:#475569; text-decoration:none; transition:color 0.2s; }
+            .hi-nav-menu a:hover, .hi-nav-menu a.active { color:#3366CC; }
+            .hi-nav-tg { display:inline-flex; align-items:center; gap:6px; background:#3366CC; color:#fff; padding:9px 20px; border-radius:8px; font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:500; text-decoration:none; transition:background 0.2s; white-space:nowrap; }
+            .hi-nav-tg:hover { background:#2952a3; color:#fff; }
+            .hi-nav-right { display:flex; align-items:center; gap:28px; }
+            .hi-burger { display:none; background:none; border:none; font-size:1.5rem; color:#1e293b; cursor:pointer; }
+            .hi-mobile-menu { display:none; position:fixed; top:70px; left:0; right:0; background:#fff; border-bottom:1px solid #e2e8f0; padding:20px; z-index:9998; flex-direction:column; gap:16px; }
+            .hi-mobile-menu.open { display:flex; }
+            .hi-mobile-menu a { font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; color:#1e293b; text-decoration:none; padding:8px 0; }
+            .hi-mobile-menu a:hover { color:#3366CC; }
+            @media (max-width:991px) { .hi-nav-menu { display:none; } .hi-burger { display:block; } .hi-nav-tg { display:none !important; } }
+
+            /* Page hero */
+            .hi-page-hero {
+                padding: 140px 0 70px;
+                background: linear-gradient(135deg, #f8fafc, #eff6ff);
+                text-align: center;
+            }
+            .hi-page-hero .hi-badge {
+                display: inline-block;
+                background: #eff6ff;
+                color: #3366CC;
+                font-size: 0.75rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                padding: 6px 16px;
+                border-radius: 50px;
+                margin-bottom: 16px;
+                letter-spacing: 0.05em;
+                font-family: 'Inter', sans-serif;
+            }
+            .hi-page-hero h1 {
+                font-size: 2.75rem;
+                margin-bottom: 16px;
+                color: #0f172a;
+            }
+            .hi-page-hero p {
+                font-size: 1.1rem;
+                color: #475569;
+                max-width: 560px;
+                margin: 0 auto;
+                font-family: 'Inter', sans-serif;
+            }
+
+            /* Blog layout */
+            .blog-layout {
+                display: grid;
+                grid-template-columns: 240px 1fr;
+                gap: 40px;
+                align-items: start;
+            }
+            .toc-sidebar {
+                position: sticky; top: 90px;
+                max-height: calc(100vh - 120px); overflow-y: auto;
+                padding-right: 20px;
+            }
+            .toc-link {
+                display: block; padding: 6px 0; font-size: 0.85rem;
+                color: #94a3b8; text-decoration: none;
+                border-bottom: 1px solid #e2e8f0;
+                font-family: 'Inter', sans-serif;
+            }
+            .toc-link:hover { color: #3366CC; }
+
+            @media (max-width: 900px) {
+                .blog-layout { grid-template-columns: 1fr; }
+                .toc-sidebar { position: static; max-height: none; }
+            }
+
+            /* Footer */
+            .hi-footer a { color: #94a3b8; text-decoration: none; }
+            .hi-footer a:hover { color: #fff; }
+            .hi-footer h4 { color: #fff; margin-bottom: 16px; font-size: 0.95rem; }
+            .hi-footer-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; }
+            .hi-footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 0.8rem; color: #94a3b8; flex-wrap: wrap; gap: 10px; }
+
+            @media (max-width: 991px) {
+                .hi-footer-bottom { flex-direction: column; text-align: center; }
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Navigation -->
+        <nav class="hi-nav">
+            <div class="hi-nav-inner">
+                <a href="index.html" class="hi-nav-logo">
+                    <img src="assets/logo-main.jpg" alt="[h]">
+                    <span class="logo-text-hi">Hirsch Index</span>
+                </a>
+                <div class="hi-nav-right">
+                    <div class="hi-nav-menu">
+                        <a href="consulting.html">Консалтинг</a>
+                        <a href="blog.html" class="active">Блог</a>
+                        <a href="resources.html">Ресурсы</a>
+                    </div>
+                    <button class="hi-burger" onclick="document.getElementById('hiMobileMenu').classList.toggle('open')" aria-label="Меню">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div class="hi-mobile-menu" id="hiMobileMenu">
+            <a href="consulting.html">Консалтинг</a>
+            <a href="blog.html">Блог</a>
+            <a href="resources.html">Ресурсы</a>
+        </div>
+
+        <!-- Hero -->
+        <section class="hi-page-hero">
+            <div class="container">
+                <div class="wow fadeInUp">
+                    <span class="hi-badge">Blog</span>
+                    <h1>The ABCs of medical science</h1>
+                    <p>Notes on scientific writing, research methodology, and the craft of publishing</p>
+                    <p style="font-size:0.85rem; color:#94a3b8; margin-top:16px;">
+                        Published weekly on
+                        <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank" style="color:#2BB5A0; font-weight:500;">LinkedIn</a>,
+                        <a href="https://x.com/HirschIndex" target="_blank" style="color:#2BB5A0; font-weight:500;">X</a>,
+                        <a href="https://www.instagram.com/hirsch_index_school/" target="_blank" style="color:#2BB5A0; font-weight:500;">Instagram</a>, and
+                        <a href="https://www.facebook.com/profile.php?id=61573281606605" target="_blank" style="color:#2BB5A0; font-weight:500;">Facebook</a>
+                        &mdash; a new topic every week.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Content -->
+        <section class="pt-90 pb-90">
+            <div class="container">
+                <div class="blog-layout">
+                    <div class="toc-sidebar wow fadeInLeft">
+                        <h4 style="margin-bottom:12px; font-size:0.95rem;">Contents</h4>
+                        <p style="color:#94a3b8; font-size:0.85rem;">The first posts are coming soon.</p>
+                    </div>
+                    <div>
+                        <div style="padding:60px 20px; text-align:center; color:#94a3b8; border:1px dashed #e2e8f0; border-radius:12px;">
+                            <p style="font-size:1.1rem; margin-bottom:8px;">Week 1 is on the way.</p>
+                            <p style="font-size:0.9rem;">Follow us on social to catch each post the day it's published.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="w-100 pt-90 pb-50 position-relative hi-footer" style="background:#0f172a;">
+                <div class="container">
+                    <div class="row" style="gap:0;">
+                        <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                            <h4 style="font-family:'Playfair Display',serif;">Hirsch Index</h4>
+                            <div class="hi-footer-links">
+                                <a href="consulting.html">Консалтинг</a>
+                                <a href="blog.html">Блог</a>
+                                <a href="resources.html">Ресурсы</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                            <h4 style="font-family:'Playfair Display',serif;">Contact</h4>
+                                <div class="hi-footer-links">
+                                    <a href="mailto:zhigalovmd@yandex.ru"><i class="fas fa-envelope" style="width:18px;"></i> zhigalovmd@yandex.ru</a>
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn DM</a>
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                            <h4 style="font-family:'Playfair Display',serif;">Social</h4>
+                                <div class="hi-footer-links">
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn</a>
+                                    <a href="https://x.com/HirschIndex" target="_blank"><i class="fab fa-x-twitter" style="width:18px;"></i> X</a>
+                                    <a href="https://www.instagram.com/hirsch_index_school/" target="_blank"><i class="fab fa-instagram" style="width:18px;"></i> Instagram</a>
+                                    <a href="https://www.facebook.com/profile.php?id=61573281606605" target="_blank"><i class="fab fa-facebook-f" style="width:18px;"></i> Facebook</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="hi-footer-bottom">
+                        <span>&copy; 2026 Hirsch Index. All rights reserved.</span>
+                        <span><a href="offer.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/custom-scripts.js"></script>
+    </body>
+</html>

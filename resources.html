@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Researcher's online toolkit — a curated selection of essential tools for scientific work. Hirsch Index.">
+        <link rel="icon" href="assets/logo-main.jpg" sizes="35x35" type="image/jpeg">
+        <title>Resources — Hirsch Index</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/all.min.css">
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/color-hirsch.css">
+
+        <style>
+            body { font-family: 'Inter', sans-serif; }
+            h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+
+            /* Shared nav */
+            .hi-nav { position:fixed; top:0; left:0; right:0; height:70px; background:#fff; border-bottom:1px solid #e2e8f0; z-index:9999; display:flex; align-items:center; }
+            .hi-nav-inner { max-width:1150px; margin:0 auto; padding:0 20px; width:100%; display:flex; align-items:center; justify-content:space-between; }
+            .hi-nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+            .hi-nav-logo img { width:36px; height:36px; border-radius:6px; }
+            .logo-text-hi { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:bold; color:#3366CC; margin-left:10px; }
+            .hi-nav-menu { display:flex; align-items:center; gap:28px; list-style:none; margin:0; padding:0; }
+            .hi-nav-menu a { font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:500; color:#475569; text-decoration:none; transition:color 0.2s; }
+            .hi-nav-menu a:hover, .hi-nav-menu a.active { color:#3366CC; }
+            .hi-nav-tg { display:inline-flex; align-items:center; gap:6px; background:#3366CC; color:#fff; padding:9px 20px; border-radius:8px; font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:500; text-decoration:none; transition:background 0.2s; white-space:nowrap; }
+            .hi-nav-tg:hover { background:#2952a3; color:#fff; }
+            .hi-nav-right { display:flex; align-items:center; gap:28px; }
+            .hi-burger { display:none; background:none; border:none; font-size:1.5rem; color:#1e293b; cursor:pointer; }
+            .hi-mobile-menu { display:none; position:fixed; top:70px; left:0; right:0; background:#fff; border-bottom:1px solid #e2e8f0; padding:20px; z-index:9998; flex-direction:column; gap:16px; }
+            .hi-mobile-menu.open { display:flex; }
+            .hi-mobile-menu a { font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; color:#1e293b; text-decoration:none; padding:8px 0; }
+            .hi-mobile-menu a:hover { color:#3366CC; }
+            @media (max-width:991px) { .hi-nav-menu { display:none; } .hi-burger { display:block; } .hi-nav-tg { display:none !important; } }
+
+            /* Page hero */
+            .hi-page-hero {
+                padding: 140px 0 70px;
+                background: linear-gradient(135deg, #f8fafc, #eff6ff);
+                text-align: center;
+            }
+            .hi-page-hero .hi-badge {
+                display: inline-block;
+                background: #eff6ff;
+                color: #3366CC;
+                font-size: 0.75rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                padding: 6px 16px;
+                border-radius: 50px;
+                margin-bottom: 16px;
+                letter-spacing: 0.05em;
+                font-family: 'Inter', sans-serif;
+            }
+            .hi-page-hero h1 {
+                font-size: 2.75rem;
+                margin-bottom: 16px;
+                color: #0f172a;
+            }
+            .hi-page-hero p {
+                font-size: 1.1rem;
+                color: #475569;
+                max-width: 560px;
+                margin: 0 auto;
+                font-family: 'Inter', sans-serif;
+            }
+
+            /* Resource TOC */
+            .resource-toc {
+                display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+                margin-top: 24px;
+            }
+            .resource-toc a {
+                padding: 8px 20px; border-radius: 20px; font-size: 0.85rem;
+                font-weight: 500; text-decoration: none; transition: 0.2s;
+                background: rgba(255,255,255,0.6); color: #475569;
+                border: 1px solid #e2e8f0;
+                font-family: 'Inter', sans-serif;
+            }
+            .resource-toc a:hover {
+                background: #3366CC; color: #fff; border-color: #3366CC;
+            }
+
+            /* Resource sections */
+            .resource-section { margin-bottom: 50px; }
+            .resource-section h2 {
+                font-size: 1.5rem; margin-bottom: 8px; color: #0f172a;
+            }
+            .resource-section .section-desc {
+                font-size: 0.9rem; color: #94a3b8; margin-bottom: 24px;
+                font-family: 'Inter', sans-serif;
+            }
+
+            .section-icon {
+                width: 40px; height: 40px; border-radius: 10px;
+                display: inline-flex; align-items: center; justify-content: center;
+                font-size: 18px; margin-bottom: 12px;
+            }
+
+            /* Resource cards */
+            .resource-card {
+                display: flex; gap: 20px; align-items: flex-start;
+                background: #fff; border: 1px solid #e2e8f0;
+                border-radius: 12px; padding: 24px;
+                margin-bottom: 12px; transition: 0.3s;
+            }
+            .resource-card:hover {
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-2px);
+                border-color: #3366CC;
+            }
+            .resource-num {
+                width: 36px; height: 36px; border-radius: 8px;
+                display: flex; align-items: center; justify-content: center;
+                font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+                font-family: 'Inter', sans-serif;
+            }
+            .resource-card h4 { margin-bottom: 6px; font-size: 1rem; }
+            .resource-card h4 a {
+                color: #0f172a; text-decoration: none; transition: color 0.2s;
+            }
+            .resource-card h4 a:hover { color: #3366CC; }
+            .resource-card h4 .ext-icon {
+                font-size: 0.7rem; color: #94a3b8; margin-left: 6px;
+            }
+            .resource-card p {
+                font-size: 0.88rem; color: #475569; margin: 0; line-height: 1.5;
+                font-family: 'Inter', sans-serif;
+            }
+
+            /* Footer */
+            .hi-footer { color: #cbd5e1; }
+            .hi-footer h4 { color: #fff; font-size: 1rem; margin-bottom: 16px; }
+            .hi-footer-links { display: flex; flex-direction: column; gap: 8px; }
+            .hi-footer-links a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-family: 'Inter', sans-serif; transition: color 0.2s; }
+            .hi-footer-links a:hover { color: #fff; }
+            .hi-footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 0.8rem; color: #94a3b8; flex-wrap: wrap; gap: 10px; }
+            .hi-footer-bottom a { color: #94a3b8; text-decoration: none; }
+            .hi-footer-bottom a:hover { color: #fff; }
+
+            @media (max-width: 991px) {
+                .hi-footer-bottom { flex-direction: column; text-align: center; }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <!-- Navigation -->
+            <div class="hi-nav">
+                <div class="hi-nav-inner">
+                    <a href="index.html" class="hi-nav-logo">
+                        <img src="assets/logo-main.jpg" alt="Hirsch Index">
+                        <span class="logo-text-hi">Hirsch Index</span>
+                    </a>
+                    <div class="hi-nav-right">
+                        <ul class="hi-nav-menu">
+                            <li><a href="consulting.html">Консалтинг</a></li>
+                            <li><a href="blog.html">Блог</a></li>
+                            <li><a href="resources.html" class="active">Ресурсы</a></li>
+                        </ul>
+                        <button class="hi-burger" onclick="document.getElementById('hiMobile').classList.toggle('open')" aria-label="Меню">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hi-mobile-menu" id="hiMobile">
+                <a href="consulting.html">Консалтинг</a>
+                <a href="blog.html">Блог</a>
+                <a href="resources.html">Ресурсы</a>
+            </div>
+
+            <!-- Page Hero -->
+            <section class="hi-page-hero">
+                <div class="container">
+                    <div class="wow fadeInUp">
+                        <span class="hi-badge">Справочник</span>
+                        <h1>Онлайн-ресурсы исследователя</h1>
+                        <p>Подборка ключевых инструментов для научной работы:<br>от поиска литературы до публикации</p>
+                        <div class="resource-toc">
+                            <a href="#russian">Российские</a>
+                            <a href="#international">Международные</a>
+                            <a href="#infrastructure">Инфраструктурные</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Russian Resources -->
+            <section id="russian">
+                <div class="w-100 pt-80 pb-80 position-relative">
+                    <div class="container" style="max-width:800px;">
+                        <div class="resource-section wow fadeInUp">
+                            <div class="section-icon" style="background:#fff3e0; color:#e65100;"><i class="fas fa-flag"></i></div>
+                            <h2>Российские ресурсы</h2>
+                            <p class="section-desc">Базы данных и инструменты для работы в российском научном пространстве</p>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.05s">
+                                <div class="resource-num" style="background:#eff6ff; color:#3366CC;">1</div>
+                                <div>
+                                    <h4><a href="https://elibrary.ru/" target="_blank">eLIBRARY.ru (РИНЦ)<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Крупнейший российский агрегатор научных публикаций и цитирований. Удобен для поиска русскоязычных статей, просмотра профилей авторов и метаданных публикаций.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="resource-num" style="background:#eff6ff; color:#3366CC;">2</div>
+                                <div>
+                                    <h4><a href="https://cyberleninka.ru/" target="_blank">КиберЛенинка<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Открытая библиотека научных статей — быстрый способ получить полный текст русскоязычной публикации.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.15s">
+                                <div class="resource-num" style="background:#eff6ff; color:#3366CC;">3</div>
+                                <div>
+                                    <h4><a href="https://vak.gisnauka.ru/" target="_blank">Перечень рецензируемых изданий ВАК<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Официальный список журналов, важный для диссертаций. Проверять журнал лучше именно здесь.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="resource-num" style="background:#eff6ff; color:#3366CC;">4</div>
+                                <div>
+                                    <h4><a href="https://cr.minzdrav.gov.ru/" target="_blank">Клинические рекомендации Минздрава РФ<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Рубрикатор клинических рекомендаций — проверка актуальных рекомендаций и корректной терминологии для клинических работ.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.25s">
+                                <div class="resource-num" style="background:#eff6ff; color:#3366CC;">5</div>
+                                <div>
+                                    <h4><a href="https://antiplagiat.ru/" target="_blank">Антиплагиат<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Проверка заимствований и ИИ-контента перед подачей статьи или диссертации.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- International Resources -->
+            <section id="international">
+                <div class="w-100 pt-80 pb-80 position-relative" style="background:#f8fafc;">
+                    <div class="container" style="max-width:800px;">
+                        <div class="resource-section wow fadeInUp">
+                            <div class="section-icon" style="background:#ecfdf5; color:#2BB5A0;"><i class="fas fa-globe"></i></div>
+                            <h2>Международные ресурсы</h2>
+                            <p class="section-desc">Поиск литературы и доступ к полным текстам статей</p>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.05s">
+                                <div class="resource-num" style="background:#ecfdf5; color:#2BB5A0;">1</div>
+                                <div>
+                                    <h4><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">PubMed<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Главная база по биомедицине — «наше всё». Поиск по ключевым словам, MeSH-терминам, авторам.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="resource-num" style="background:#ecfdf5; color:#2BB5A0;">2</div>
+                                <div>
+                                    <h4><a href="https://pmc.ncbi.nlm.nih.gov/" target="_blank">PubMed Central (PMC)<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Архив полнотекстовых статей с бесплатным доступом.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.15s">
+                                <div class="resource-num" style="background:#ecfdf5; color:#2BB5A0;">3</div>
+                                <div>
+                                    <h4><a href="https://scholar.google.com/" target="_blank">Google Scholar<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Поиск по всему научному интернету — статьи, книги, диссертации, препринты.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="resource-num" style="background:#ecfdf5; color:#2BB5A0;">4</div>
+                                <div>
+                                    <h4><a href="https://www.cochranelibrary.com/" target="_blank">Cochrane Library<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>База ключевых систематических обзоров по клиническим вопросам. Позволяет быстро понять, что уже обобщено на высоком уровне.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.25s">
+                                <div class="resource-num" style="background:#ecfdf5; color:#2BB5A0;">5</div>
+                                <div>
+                                    <h4><a href="https://sci-hub.st/" target="_blank">Sci-Hub<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Доступ к полным текстам статей, закрытых за пейволлом.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Infrastructure Resources -->
+            <section id="infrastructure">
+                <div class="w-100 pt-80 pb-80 position-relative">
+                    <div class="container" style="max-width:800px;">
+                        <div class="resource-section wow fadeInUp">
+                            <div class="section-icon" style="background:#f3e8ff; color:#7c3aed;"><i class="fas fa-tools"></i></div>
+                            <h2>Инфраструктурные ресурсы</h2>
+                            <p class="section-desc">Инструменты для организации работы, проверки журналов и публикационной этики</p>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.05s">
+                                <div class="resource-num" style="background:#f3e8ff; color:#7c3aed;">1</div>
+                                <div>
+                                    <h4><a href="https://www.zotero.org/" target="_blank">Zotero<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Менеджер литературы: хранение PDF, структурирование по папкам, автоматические ссылки в Word. Полностью бесплатный.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="resource-num" style="background:#f3e8ff; color:#7c3aed;">2</div>
+                                <div>
+                                    <h4><a href="https://orcid.org/" target="_blank">ORCID<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Уникальный идентификатор автора, который связывает ваши публикации между системами.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.15s">
+                                <div class="resource-num" style="background:#f3e8ff; color:#7c3aed;">3</div>
+                                <div>
+                                    <h4><a href="https://mjl.clarivate.com/" target="_blank">Web of Science Master Journal List<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Проверка, индексируется ли журнал в Web of Science.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="resource-num" style="background:#f3e8ff; color:#7c3aed;">4</div>
+                                <div>
+                                    <h4><a href="https://www.scopus.com/sources" target="_blank">Scopus Sources<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Каталог журналов Scopus — проверка индексации и метрик журнала.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.25s">
+                                <div class="resource-num" style="background:#f3e8ff; color:#7c3aed;">5</div>
+                                <div>
+                                    <h4><a href="https://www.scimagojr.com/" target="_blank">SCImago Journal Rank (SJR)<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Рейтинг международных научных журналов — квартили, импакт-фактор, тематическая классификация.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="resource-num" style="background:#f3e8ff; color:#7c3aed;">6</div>
+                                <div>
+                                    <h4><a href="https://publicationethics.org/" target="_blank">COPE (Committee on Publication Ethics)<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Стандарты публикационной этики: конфликты интересов, дублирующие публикации, ретракции, работа редакций.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.35s">
+                                <div class="resource-num" style="background:#f3e8ff; color:#7c3aed;">7</div>
+                                <div>
+                                    <h4><a href="https://www.equator-network.org/" target="_blank">EQUATOR Network<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Библиотека чек-листов отчётности по дизайнам исследований: CONSORT, STROBE, PRISMA, CARE и другие.</p>
+                                </div>
+                            </div>
+
+                            <div class="resource-card wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="resource-num" style="background:#f3e8ff; color:#7c3aed;">8</div>
+                                <div>
+                                    <h4><a href="https://www.researchgate.net/" target="_blank">ResearchGate<i class="fas fa-external-link-alt ext-icon"></i></a></h4>
+                                    <p>Научная социальная сеть — профили авторов, полные тексты, запросы статей у авторов напрямую.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <div class="w-100 pt-90 pb-50 position-relative hi-footer" style="background:#0f172a;">
+                    <div class="container">
+                        <div class="row" style="gap:0;">
+                            <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                                <h4 style="font-family:'Playfair Display',serif;">Hirsch Index</h4>
+                                <div class="hi-footer-links">
+                                    <a href="consulting.html">Консалтинг</a>
+                                    <a href="blog.html">Блог</a>
+                                    <a href="resources.html">Ресурсы</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                                <h4 style="font-family:'Playfair Display',serif;">Contact</h4>
+                                <div class="hi-footer-links">
+                                    <a href="mailto:zhigalovmd@yandex.ru"><i class="fas fa-envelope" style="width:18px;"></i> zhigalovmd@yandex.ru</a>
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn DM</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                                <h4 style="font-family:'Playfair Display',serif;">Social</h4>
+                                <div class="hi-footer-links">
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn</a>
+                                    <a href="https://x.com/HirschIndex" target="_blank"><i class="fab fa-x-twitter" style="width:18px;"></i> X</a>
+                                    <a href="https://www.instagram.com/hirsch_index_school/" target="_blank"><i class="fab fa-instagram" style="width:18px;"></i> Instagram</a>
+                                    <a href="https://www.facebook.com/profile.php?id=61573281606605" target="_blank"><i class="fab fa-facebook-f" style="width:18px;"></i> Facebook</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hi-footer-bottom">
+                            <span>&copy; 2026 Hirsch Index. All rights reserved.</span>
+                            <span><a href="offer.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/custom-scripts.js"></script>
+    </body>
+</html>

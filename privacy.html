@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Privacy Policy — Hirsch Index</title>
+    <link rel="icon" href="assets/logo-main.jpg" sizes="35x35" type="image/jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/color-hirsch.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+
+        /* Nav */
+        .hi-nav { position:fixed; top:0; left:0; right:0; height:70px; background:#fff; border-bottom:1px solid #e2e8f0; z-index:9999; display:flex; align-items:center; }
+        .hi-nav-inner { max-width:1150px; margin:0 auto; padding:0 20px; width:100%; display:flex; align-items:center; justify-content:space-between; }
+        .hi-nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+        .hi-nav-logo img { width:36px; height:36px; border-radius:6px; }
+        .logo-text-hi { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:bold; color:#3366CC; margin-left:10px; }
+        .hi-nav-menu { display:flex; align-items:center; gap:28px; list-style:none; margin:0; padding:0; }
+        .hi-nav-menu a { font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:500; color:#475569; text-decoration:none; transition:color 0.2s; }
+        .hi-nav-menu a:hover { color:#3366CC; }
+        .hi-nav-tg { display:inline-flex; align-items:center; gap:6px; background:#3366CC; color:#fff; padding:9px 20px; border-radius:8px; font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:500; text-decoration:none; transition:background 0.2s; white-space:nowrap; }
+        .hi-nav-tg:hover { background:#2952a3; color:#fff; }
+        .hi-nav-right { display:flex; align-items:center; gap:28px; }
+        .hi-burger { display:none; background:none; border:none; font-size:1.5rem; color:#1e293b; cursor:pointer; }
+        .hi-mobile-menu { display:none; position:fixed; top:70px; left:0; right:0; background:#fff; border-bottom:1px solid #e2e8f0; padding:20px; z-index:9998; flex-direction:column; gap:16px; }
+        .hi-mobile-menu.open { display:flex; }
+        .hi-mobile-menu a { font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; color:#1e293b; text-decoration:none; padding:8px 0; }
+        @media (max-width:991px) { .hi-nav-menu { display:none; } .hi-burger { display:block; } .hi-nav-tg { display:none !important; } }
+
+        /* Page hero */
+        .hi-page-hero { padding:140px 0 50px; background:linear-gradient(135deg, #f8fafc, #eff6ff); text-align:center; }
+        .hi-page-hero h1 { font-size:2.5rem; margin-bottom:16px; color:#0f172a; }
+
+        /* Legal content */
+        .hi-legal { max-width:800px; margin:0 auto; padding:50px 20px 80px; font-size:0.95rem; line-height:1.8; color:#475569; }
+        .hi-legal h2 { font-size:1.3rem; color:#1e293b; margin:32px 0 12px; }
+        .hi-legal h3 { font-size:1.1rem; color:#1e293b; margin:24px 0 8px; }
+        .hi-legal p { margin-bottom:12px; }
+        .hi-legal ul, .hi-legal ol { margin-bottom:12px; padding-left:20px; }
+        .hi-legal li { margin-bottom:6px; }
+        .hi-legal a { color:#3366CC; }
+
+        /* Footer */
+        .hi-footer a { color:#94a3b8; text-decoration:none; }
+        .hi-footer a:hover { color:#fff; }
+        .hi-footer h4 { color:#fff; margin-bottom:16px; font-size:0.95rem; }
+        .hi-footer-links { display:flex; flex-direction:column; gap:8px; font-size:0.9rem; }
+        .hi-footer-bottom { border-top:1px solid rgba(255,255,255,0.1); margin-top:40px; padding-top:20px; display:flex; justify-content:space-between; font-size:0.8rem; color:#94a3b8; flex-wrap:wrap; gap:10px; }
+        @media (max-width:991px) { .hi-footer-bottom { flex-direction:column; text-align:center; } }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- ===== Navigation ===== -->
+        <div class="hi-nav">
+            <div class="hi-nav-inner">
+                <a href="index.html" class="hi-nav-logo">
+                    <img src="assets/logo-main.jpg" alt="Hirsch Index">
+                    <span class="logo-text-hi">Hirsch Index</span>
+                </a>
+                <div class="hi-nav-right">
+                    <ul class="hi-nav-menu">
+                        <li><a href="consulting.html">Консалтинг</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="resources.html">Ресурсы</a></li>
+                    </ul>
+                    <button class="hi-burger" onclick="document.getElementById('hiMobile').classList.toggle('open')" aria-label="Меню">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hi-mobile-menu" id="hiMobile">
+            <a href="consulting.html">Консалтинг</a>
+            <a href="blog.html">Блог</a>
+            <a href="resources.html">Ресурсы</a>
+        </div>
+
+        <!-- ===== Page Hero ===== -->
+        <section class="hi-page-hero">
+            <div class="container">
+                <h1>Политика конфиденциальности</h1>
+            </div>
+        </section>
+
+        <!-- ===== Legal Content ===== -->
+        <div class="hi-legal">
+            <p style="color:#64748b; font-size:0.85rem; margin-bottom:30px;">Дата публикации: 16 апреля 2026 г.</p>
+
+            <h3>1. Общие положения</h3>
+            <p>Настоящая Политика определяет порядок обработки и защиты персональных данных пользователей сайта «Индекс Хирша» (далее — Сайт), который принадлежит ИП Жигалов Константин Константинович (далее — Оператор).</p>
+            <p>Политика разработана в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+            <p>Используя Сайт и предоставляя свои данные через формы регистрации или оплаты, пользователь выражает согласие с условиями настоящей Политики.</p>
+
+            <h3>2. Какие данные мы собираем</h3>
+            <p>Оператор может собирать следующие персональные данные:</p>
+            <ul>
+                <li>Фамилия, имя</li>
+                <li>Адрес электронной почты</li>
+                <li>Номер телефона</li>
+                <li>Данные об оплате (обрабатываются платёжным провайдером, Оператор не хранит данные банковских карт)</li>
+                <li>Технические данные (IP-адрес, тип браузера, cookies) — собираются автоматически</li>
+            </ul>
+
+            <h3>3. Цели обработки данных</h3>
+            <p>Персональные данные обрабатываются в следующих целях:</p>
+            <ul>
+                <li>Предоставление доступа к курсам и материалам на платформе GetCourse</li>
+                <li>Выполнение обязательств по договору оферты</li>
+                <li>Связь с пользователем по вопросам обучения</li>
+                <li>Отправка информационных и маркетинговых рассылок (с согласия пользователя)</li>
+                <li>Улучшение работы Сайта</li>
+            </ul>
+
+            <h3>4. Хранение и защита данных</h3>
+            <p>Персональные данные хранятся на серверах платформы GetCourse (ООО «Скалабл Софт», Россия) и обрабатываются с применением организационных и технических мер безопасности.</p>
+            <p>Оператор не передаёт персональные данные третьим лицам, за исключением случаев, предусмотренных законодательством РФ, а также передачи данных платёжным провайдерам для обработки оплат.</p>
+
+            <h3>5. Срок обработки данных</h3>
+            <p>Персональные данные обрабатываются до момента достижения целей обработки или до отзыва согласия пользователем.</p>
+
+            <h3>6. Права пользователя</h3>
+            <p>Пользователь имеет право:</p>
+            <ul>
+                <li>Запросить информацию о своих персональных данных</li>
+                <li>Потребовать уточнения, блокирования или уничтожения данных</li>
+                <li>Отозвать согласие на обработку персональных данных</li>
+                <li>Отказаться от получения рассылок</li>
+            </ul>
+            <p>Для реализации указанных прав направьте запрос на <a href="mailto:zhigalovmd@yandex.ru">zhigalovmd@yandex.ru</a>.</p>
+
+            <h3>7. Файлы cookies</h3>
+            <p>Сайт использует файлы cookies для корректной работы и аналитики. Пользователь может отключить cookies в настройках браузера, однако это может повлиять на функциональность Сайта.</p>
+
+            <h3>8. Изменения Политики</h3>
+            <p>Оператор оставляет за собой право вносить изменения в настоящую Политику. Актуальная версия размещена на данной странице.</p>
+
+            <h3>9. Контакты</h3>
+            <p>По вопросам обработки персональных данных:<br>
+            Email: <a href="mailto:zhigalovmd@yandex.ru">zhigalovmd@yandex.ru</a><br>
+            Telegram: <a href="mailto:zhigalovmd@yandex.ru">+7 985 477-04-49</a></p>
+        </div>
+
+        <!-- ===== Footer ===== -->
+        <footer>
+            <div class="w-100 pt-90 dark-layer opc9 pb-50 position-relative hi-footer" style="background:#0f172a;">
+                <div class="container">
+                    <div class="row" style="gap:0;">
+                        <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                            <h4 style="font-family:'Playfair Display',serif;">Hirsch Index</h4>
+                            <div class="hi-footer-links">
+                                <a href="consulting.html">Консалтинг</a>
+                                <a href="blog.html">Блог</a>
+                                <a href="resources.html">Ресурсы</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                            <h4 style="font-family:'Playfair Display',serif;">Contact</h4>
+                                <div class="hi-footer-links">
+                                    <a href="mailto:zhigalovmd@yandex.ru"><i class="fas fa-envelope" style="width:18px;"></i> zhigalovmd@yandex.ru</a>
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn DM</a>
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
+                            <h4 style="font-family:'Playfair Display',serif;">Social</h4>
+                                <div class="hi-footer-links">
+                                    <a href="https://www.linkedin.com/in/konstantinzhigalov/" target="_blank"><i class="fab fa-linkedin-in" style="width:18px;"></i> LinkedIn</a>
+                                    <a href="https://x.com/HirschIndex" target="_blank"><i class="fab fa-x-twitter" style="width:18px;"></i> X</a>
+                                    <a href="https://www.instagram.com/hirsch_index_school/" target="_blank"><i class="fab fa-instagram" style="width:18px;"></i> Instagram</a>
+                                    <a href="https://www.facebook.com/profile.php?id=61573281606605" target="_blank"><i class="fab fa-facebook-f" style="width:18px;"></i> Facebook</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="hi-footer-bottom">
+                        <span>&copy; 2026 Hirsch Index. All rights reserved.</span>
+                        <span><a href="offer.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/custom-scripts.js"></script>
+</body>
+</html>
