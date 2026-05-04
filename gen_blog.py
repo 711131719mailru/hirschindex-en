@@ -30,7 +30,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 BASE = Path(__file__).parent
 DATA_PATH = BASE / "blog_data.json"
-HTML_PATH = BASE / "blog.html"
+HTML_PATH = BASE / "blog" / "index.html"
 
 START_MARKER = "<!-- Blog Content -->"
 END_MARKER = "<!-- Footer -->"
