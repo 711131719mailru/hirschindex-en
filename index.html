@@ -167,10 +167,47 @@
 
             /* Hero section */
             .hi-hero {
-                padding: 160px 0 100px;
+                padding: 140px 0 70px;
                 background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #ecfdf5 100%);
                 position: relative;
                 overflow: hidden;
+            }
+
+            /* Section spacing tighten — mobile overrides that beat template's 5rem @850px */
+            @media (max-width: 768px) {
+                .hi-hero { padding: 110px 0 44px !important; }
+                .pt-70 { padding-top: 44px !important; }
+                .pb-70 { padding-bottom: 44px !important; }
+                .pt-60 { padding-top: 36px !important; }
+                .pb-60 { padding-bottom: 36px !important; }
+                .pt-40 { padding-top: 28px !important; }
+                .pb-40 { padding-bottom: 28px !important; }
+                .pb-50 { padding-bottom: 32px !important; }
+            }
+
+            /* Founder: kill template's 5rem margin-top on .about-desc for top/bottom symmetry */
+            .about-desc { margin-top: 0 !important; }
+
+            /* Founder photo (avatar-style header) */
+            .hi-founder-head {
+                display: flex;
+                align-items: center;
+                gap: 22px;
+                margin-bottom: 20px;
+            }
+            .hi-founder-photo {
+                width: 108px;
+                height: 108px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid #fff;
+                box-shadow: 0 6px 16px rgba(15, 23, 42, 0.10);
+                flex-shrink: 0;
+            }
+            .hi-founder-head-text { display: flex; flex-direction: column; }
+            @media (max-width: 480px) {
+                .hi-founder-head { gap: 16px; }
+                .hi-founder-photo { width: 84px; height: 84px; }
             }
             .hi-hero::after {
                 content: '';
@@ -461,7 +498,7 @@
 
             <!-- ===== Ecosystem (4 Pillars) ===== -->
             <section>
-                <div class="w-100 pt-100 pb-100 position-relative">
+                <div class="w-100 pt-70 pb-70 position-relative">
                     <div class="container">
                         <div class="sec-title v2 text-center w-100 wow fadeInUp">
                             <div class="sec-title-inner d-inline-block">
@@ -501,15 +538,20 @@
 
             <!-- ===== About / Founder ===== -->
             <section id="about">
-                <div class="w-100 pt-100 pb-100 position-relative" style="background:#f8fafc;">
+                <div class="w-100 pt-70 pb-70 position-relative" style="background:#f8fafc;">
                     <div class="container">
                         <div class="row mrg30 align-items-center">
                             <div class="col-md-12 col-lg-6 wow fadeInLeft">
                                 <div class="about-desc w-100">
-                                    <span class="thm-clr d-inline-block" style="font-family:'Inter',sans-serif; font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.05em;">Founder</span>
-                                    <h2 class="mb-0" style="margin-top:12px;">Konstantin Zhigalov,<br>MD, PhD, Prof. h.c.</h2>
-                                    <p class="mb-0" style="margin-top:16px; font-family:'Inter',sans-serif; color:#475569;">Cardiac surgeon with years of clinical and research experience at university hospitals in Germany. Earned his PhD at Charité — Universitätsmedizin Berlin. Author of 70+ publications in international peer-reviewed journals.</p>
-                                    <p class="mb-0" style="margin-top:16px; font-family:'Inter',sans-serif; color:#475569;">Founded Hirsch Index to help physicians and researchers worldwide cross the barrier to international publication — from picking a topic to getting a DOI.</p>
+                                    <div class="hi-founder-head">
+                                        <img src="/assets/founder.jpg" alt="Konstantin Zhigalov" class="hi-founder-photo">
+                                        <div class="hi-founder-head-text">
+                                            <span class="thm-clr d-inline-block" style="font-family:'Inter',sans-serif; font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.05em;">Founder</span>
+                                            <h2 class="mb-0" style="margin-top:8px;">Konstantin Zhigalov,<br>MD, PhD, Prof. h.c.</h2>
+                                        </div>
+                                    </div>
+                                    <p class="mb-0" style="margin-top:16px; font-family:'Inter',sans-serif; color:#475569; text-align:justify;">Cardiac surgeon with years of clinical and research experience at university hospitals in Germany. Earned his PhD at Charité — Universitätsmedizin Berlin. Author of 70+ publications in international peer-reviewed journals.</p>
+                                    <p class="mb-0" style="margin-top:16px; font-family:'Inter',sans-serif; color:#475569; text-align:justify;">Founded Hirsch Index to help physicians and researchers worldwide cross the barrier to international publication — from picking a topic to getting a DOI.</p>
                                     <div class="hi-founder-badges" style="margin-top:24px;">
                                         <div class="hi-founder-badge"><i class="fas fa-graduation-cap"></i> MD, PhD</div>
                                         <div class="hi-founder-badge"><i class="fas fa-chart-line"></i> h-index 16</div>
@@ -555,7 +597,7 @@
 
             <!-- ===== Social Channels ===== -->
             <section>
-                <div class="w-100 pt-100 pb-100 position-relative">
+                <div class="w-100 pt-70 pb-70 position-relative">
                     <div class="container">
                         <div class="sec-title v2 text-center w-100 wow fadeInUp">
                             <div class="sec-title-inner d-inline-block">
@@ -599,7 +641,7 @@
 
             <!-- ===== CTA ===== -->
             <section>
-                <div class="w-100 pt-70 scndry-bg pb-70 position-relative text-center">
+                <div class="w-100 pt-60 scndry-bg pb-60 position-relative text-center">
                     <div class="container wow fadeInUp">
                         <h2 style="color:#fff; margin-bottom:24px;">Ready to start?</h2>
                         <p style="color:rgba(255,255,255,0.7); margin-bottom:40px; max-width:500px; margin-left:auto; margin-right:auto; font-family:'Inter',sans-serif;">Join a community of physician-researchers publishing internationally</p>
@@ -613,7 +655,7 @@
 
             <!-- ===== Footer ===== -->
             <footer>
-                <div class="w-100 pt-90 dark-layer opc9 pb-50 position-relative hi-footer" style="background:#0f172a;">
+                <div class="w-100 pt-70 dark-layer opc9 pb-40 position-relative hi-footer" style="background:#0f172a;">
                     <div class="container">
                         <div class="row" style="gap:0;">
                             <div class="col-md-6 col-lg-4" style="margin-bottom:30px;">
